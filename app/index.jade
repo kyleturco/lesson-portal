@@ -1,1 +1,29 @@
-h1 Testing testing
+doctype html
+html(lang="en-US")
+  head
+    meta(charset="utf-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+    title Lesson Portal
+    //- link(rel="stylesheet" href="lib/build.css")
+    link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css")
+    link(rel="stylesheet" href="main.css")
+    link(rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css")
+    //- Fonts
+    link(href='http://fonts.googleapis.com/css?family=Karla' rel='stylesheet' type='text/css')
+    link(href='http://fonts.googleapis.com/css?family=Arimo:700' rel='stylesheet' type='text/css')
+
+  body(ng-app="lessonPortal")
+    include partials/header
+
+    .content
+      .app(ng-view)
+
+    include partials/footer
+
+    script(src="lib/build.js")
+    script(src="assets/main.module.js")
+    script(src="assets/main.run.js")
+    //- script(src="assets/main.constants.js")
+    script(src="assets/main.filters.js")
+    script(src="assets/static/static.config.js")
