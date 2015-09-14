@@ -1,0 +1,59 @@
+{
+  "name": "lesson-portal",
+  "version": "1.0.0",
+  "description": "An online portal for private music teachers",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kyleturco/lesson-portal.git"
+  },
+  "author": "Kyle Turco <kyleturco@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kyleturco/lesson-portal/issues"
+  },
+  "homepage": "https://github.com/kyleturco/lesson-portal#readme",
+  "dependencies": {
+    "babel": "^5.8.21",
+    "body-parser": "^1.13.3",
+    "del": "^1.2.1",
+    "errorhandler": "^1.4.2",
+    "express": "^4.13.3",
+    "express-session": "^1.11.3",
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^2.3.1",
+    "gulp-babel": "^5.2.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-connect": "^2.2.0",
+    "gulp-debug": "^2.1.0",
+    "gulp-help": "^1.6.1",
+    "gulp-html-replace": "^1.5.1",
+    "gulp-if": "^1.2.5",
+    "gulp-iife": "0.0.7",
+    "gulp-jade": "^1.1.0",
+    "gulp-js-prettify": "^0.1.0",
+    "gulp-livereload": "^3.8.0",
+    "gulp-load-plugins": "^0.10.0",
+    "gulp-minify-css": "^1.2.1",
+    "gulp-minify-html": "^1.0.4",
+    "gulp-ng-annotate": "^1.1.0",
+    "gulp-plumber": "^1.0.1",
+    "gulp-sass": "^2.0.4",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^1.4.0",
+    "gulp-watch": "^4.3.5",
+    "livereload": "^0.3.7",
+    "jade": "^1.11.0",
+    "lodash": "^3.10.1",
+    "main-bower-files": "^2.9.0",
+    "md5": "^2.0.0",
+    "mongodb": "^2.0.41",
+    "morgan": "^1.6.1",
+    "node-sass-middleware": "^0.9.0",
+    "passport": "^0.3.0",
+    "passport-twitter": "^1.0.3"
+  }
+}

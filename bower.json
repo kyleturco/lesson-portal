@@ -1,0 +1,24 @@
+{
+  "name": "lesson-portal",
+  "version": "0.0.0",
+  "homepage": "https://github.com/kyleturco/lesson-portal",
+  "authors": [
+    "Kyle Turco <kyleturco@gmail.com>"
+  ],
+  "main": "server.js",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.5",
+    "angular": "~1.4.4",
+    "fontawesome": "~4.4.0",
+    "angular-route": "~1.4.4",
+    "angular-bootstrap": "~0.13.0"
+  }
+}
