@@ -55,5 +55,10 @@
     "node-sass-middleware": "^0.9.0",
     "passport": "^0.3.0",
     "passport-twitter": "^1.0.3"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.9.3",
+    "gulp": "^3.9.0",
+    "gulp-livereload": "^3.8.0"
   }
 }
