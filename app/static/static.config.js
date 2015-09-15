@@ -2,9 +2,9 @@ angular
   .module('lessonPortal')
   .config(function ($routeProvider) {
     $routeProvider
-      // .when('/', {
-      //   templateUrl: 'assets/pages/landing.html',
-      // })
+      .when('/', {
+        templateUrl: 'views/teacher-home.html',
+      })
       // .when('/web', {
       //   templateUrl: 'assets/pages/web.html'
       // })
@@ -20,7 +20,7 @@ angular
       //   templateUrl: 'assets/pages/contact.html'
       // })
 
-      // .otherwise({
-      //   templateUrl: 'assets/static/404.html'
-      // });
+      .otherwise({
+        templateUrl: 'assets/static/404.html'
+      });
   })
