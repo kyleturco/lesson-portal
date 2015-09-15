@@ -53,6 +53,7 @@
     "mongodb": "^2.0.41",
     "mongoose": "^4.1.7",
     "morgan": "^1.6.1",
+    "node-restful": "^0.2.2",
     "node-sass-middleware": "^0.9.0",
     "passport": "^0.3.0",
     "passport-twitter": "^1.0.3"
