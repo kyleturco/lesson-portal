@@ -1,9 +1,12 @@
 .teacher-background
   .container
-    h3 Welcome, teacher!
-    h5 Student List
-    ul
-      li Student 1
-      li Student 2
-      li Student 3
+    .hero-section
+      h3 Welcome, teacher!
+      h5 Student List
+      ul(ng-repeat='student in students')
+        li {{student.name}}
+          p {{student.lessonDay}} : {{student.lessonTime}}
+    .bottom-section
+      h3 Testing
+      p Is this running from the node server? Is it? Is it?
     hr

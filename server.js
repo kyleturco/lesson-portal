@@ -11,6 +11,31 @@ var app = express();
 
 app.use(express.static(__dirname + "/build"));
 
+app.get('/teacher-home', function (req, res) {
+  console.log("I received a get request");
+
+    var students = [
+      {
+        name: "Michael Jordan",
+        lessonTime: "2:30pm",
+        lessonDay: "Thursday"
+      },
+      {
+        name: "Dennis 'The Man' Rodman",
+        lessonTime: "4:30pm",
+        lessonDay: "Friday"
+      },
+      {
+        name: "Scottie Pippen",
+        lessonTime: "5:30pm",
+        lessonDay: "Tuesday"
+      }
+    ]
+
+    res.json(students);
+})
+
+
 app.listen(3000);
 console.log("Server running on port 3000");
 
