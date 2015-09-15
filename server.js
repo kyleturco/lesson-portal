@@ -11,6 +11,9 @@ var app = express();
 
 app.use(express.static(__dirname + "/build"));
 
+// Connect Mongoose to Mongo database
+mongoose.connect(config.mongo.url)
+
 app.get('/teacher-home', function (req, res) {
   console.log("I received a get request");
 
