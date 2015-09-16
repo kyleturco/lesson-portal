@@ -5,7 +5,8 @@ var express     = require('express'),
     path        = require('path'),
     mongoose    = require('mongoose'),
     bodyParser  = require('body-parser'),
-    passport    = require('passport');
+    passport    = require('passport'),
+    routes      = require('./routes/routes')
 
 // __dirname === /Users/kyle/projects/lesson-portal/server/
 // adding .. == /Users/kyle/projects/lesson-portal/server/../
@@ -25,7 +26,11 @@ app.use(express.static(SERVER_ROOT));
 mongoose.connect('mongodb://localhost:27017/lessonportal')
 
 // Routes
-app.use('/api', require('./routes/routes'));
+//app.use('/api', require('./routes/routes'));
+
+// var Student = require('./server/models/students.js');
+app.use('/api' , routes);
+
 
 // Start Server
 var server = app.listen(3000, function () {

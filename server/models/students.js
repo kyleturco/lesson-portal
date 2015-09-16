@@ -1,14 +1,14 @@
 
 // Dependencies
-var restful = require('node-restful');
-var mongoose = restful.mongoose;
+var mongoose  = require('mongoose');
+var Schema    = mongoose.Schema;
 
 // Schema
-var studentSchema = new mongoose.Schema({
+var studentSchema = new Schema({
   name: String,
   lessonDay: String,
   lessonTime: String
 });
 
 // Return model
-module.exports = restful.model('Students', studentSchema);
+module.exports = mongoose.model('Student', studentSchema);

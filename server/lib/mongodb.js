@@ -2,7 +2,7 @@ var mongo = require('mongodb').MongoClient;
 
 var url = process.env.MONGODB_URL;
 
-var database;
+// var database;
 
 if (!global.db) {
   mongo.connect(url, function(err, db) {
