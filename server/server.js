@@ -1,21 +1,28 @@
 'use strict';
+
 // Dependencies
 var express     = require('express'),
     path        = require('path'),
     mongoose    = require('mongoose'),
     bodyParser  = require('body-parser'),
-    path        = require('path'),
     passport    = require('passport');
+
+// __dirname === /Users/kyle/projects/lesson-portal/server/
+// adding .. == /Users/kyle/projects/lesson-portal/server/../
+// path.resolve == /Users/kyle/projects/lesson-portal/
+
+var PROJECT_ROOT = path.resolve(__dirname, '..');
+var SERVER_ROOT = PROJECT_ROOT + '/build';
 
 // Express
 var app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.use(express.static(__dirname + "/build"));
+app.use(express.static(SERVER_ROOT));
 
 // MongoDB
-mongoose.connect('mongodb://localhost/lessonportal')
+mongoose.connect('mongodb://localhost:27017/lessonportal')
 
 // Routes
 app.use('/api', require('./routes/routes'));
@@ -24,7 +31,7 @@ app.use('/api', require('./routes/routes'));
 var server = app.listen(3000, function () {
   var port = server.address().port;
   console.log('Listening on port ' + port);
-})
+});
 
 
 

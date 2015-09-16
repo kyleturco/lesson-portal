@@ -11,5 +11,6 @@ var Student = require('../models/students')
 Student.methods(['get', 'put', 'post', 'delete']);
 Student.register(router, '/students')
 
+
 // Return router
 module.exports = router;
