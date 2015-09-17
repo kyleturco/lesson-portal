@@ -27,8 +27,16 @@ app.use(express.static(SERVER_ROOT));
 // MongoDB
 mongoose.connect('mongodb://localhost:27017/lessonportal')
 
+// Initialize passport
+app.use(passport.initialize());
+
+// Enable persistent login sessions
+app.use(passport.session());
+
 // Routes
-app.use('/api' , routes);
+app.use('/api', routes);
+
+require('./auth/config');
 
 // Start Server
 var server = app.listen(3000, function () {

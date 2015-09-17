@@ -4,7 +4,7 @@ var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy,
     passport       = require('passport'),
     config         = require('../lib/secrets'),
     User           = require('../models/user.model'),
-    UserController = require('/user.controller');
+    UserController = require('./user.controller');
 
 passport.serializeUser(function (user, done) {
   done(null, user.id);
