@@ -56,6 +56,7 @@
     "node-restful": "^0.2.2",
     "node-sass-middleware": "^0.9.0",
     "passport": "^0.3.0",
+    "passport-google": "^0.3.0",
     "passport-twitter": "^1.0.3"
   },
   "devDependencies": {
