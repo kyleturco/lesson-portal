@@ -1,6 +1,6 @@
 'use strict';
 
-var User = require('server/models/students');
+var User = require('../models/user.model');
 
 var UserController = {};
 

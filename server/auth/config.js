@@ -3,8 +3,8 @@
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy,
     passport       = require('passport'),
     config         = require('../lib/secrets'),
-    User           = require('../db/user.model'),
-    UserController = require('server/auth/user.controller');
+    User           = require('../models/user.model'),
+    UserController = require('/user.controller');
 
 passport.serializeUser(function (user, done) {
   done(null, user.id);
@@ -22,6 +22,6 @@ passport.use(new GoogleStrategy({
     callbackURL: config.google.callbackURL
   },
   function(token, tokenSecret, profile, done) {
-    UserController.signIn(profile, done, token)
+    UserController.signIn(profile, done, token);
   }
 ));
