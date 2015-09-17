@@ -7,9 +7,9 @@ var Schema    = mongoose.Schema;
 var userSchema = new Schema({
   gid: String,
   token: String,
-  name: String
-  email: String;
-  teacher: Boolean;
+  name: String,
+  email: String,
+  teacher: Boolean
 });
 
 // Return model

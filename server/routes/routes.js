@@ -6,20 +6,22 @@ var express = require('express'),
     User = require('../models/user.model')
 
 // Models
-// var Student = require('../models/students')
+// var User = require('../models/users')
 
 // Routes
-// Student.methods(['get', 'put', 'post', 'delete']);
-// Student.register(router, '/students')
+// User.methods(['get', 'put', 'post', 'delete']);
+// User.register(router, '/users')
 
 
 router.get('/users', function(req, res) {
+
   // var u = new User({name: 'John'});
-  // s.save(function (err, student) {
-  //   res.send(student)
+  // u.save(function (err, user) {
+  //   res.send(user)
   // })
-  User.find(function (err, students) {
-    res.json(students);
+
+  User.find(function (err, users) {
+    res.json(users);
   });
 })
 
