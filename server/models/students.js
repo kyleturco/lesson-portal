@@ -4,11 +4,13 @@ var mongoose  = require('mongoose');
 var Schema    = mongoose.Schema;
 
 // Schema
-var studentSchema = new Schema({
-  name: String,
-  lessonDay: String,
-  lessonTime: String
+var userSchema = new Schema({
+  gid: String,
+  token: String,
+  name: String
+  email: String;
+  teacher: Boolean;
 });
 
 // Return model
-module.exports = mongoose.model('Student', studentSchema);
+module.exports = mongoose.model('User', userSchema);

@@ -28,7 +28,7 @@ mongoose.connect('mongodb://localhost:27017/lessonportal')
 // Routes
 //app.use('/api', require('./routes/routes'));
 
-// var Student = require('./server/models/students.js');
+// var User = require('./server/models/user.model.js');
 app.use('/api' , routes);
 
 

@@ -3,7 +3,7 @@
 // Dependencies
 var express = require('express'),
     router  = express.Router(),
-    Student = require('../models/students')
+    User = require('../models/user.model')
 
 // Models
 // var Student = require('../models/students')
@@ -13,12 +13,12 @@ var express = require('express'),
 // Student.register(router, '/students')
 
 
-router.get('/students', function(req, res) {
-  // var s = new Student({name: 'John'});
+router.get('/users', function(req, res) {
+  // var u = new User({name: 'John'});
   // s.save(function (err, student) {
   //   res.send(student)
   // })
-  Student.find(function (err, students) {
+  User.find(function (err, students) {
     res.json(students);
   });
 })
