@@ -6,9 +6,8 @@ var express     = require('express'),
     mongoose    = require('mongoose'),
     bodyParser  = require('body-parser'),
     passport    = require('passport'),
-    routes      = require('./routes/routes'),
-    config      = require('./lib/secrets'),
-    path        = require('path')
+    routes      = require('./routes'),
+    config      = require('./lib/secrets')
 
 // __dirname === /Users/kyle/projects/lesson-portal/server/
 // adding .. == /Users/kyle/projects/lesson-portal/server/../
