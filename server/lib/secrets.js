@@ -4,8 +4,8 @@ var path = require('path');
 
 module.exports = {
 
-  root: path.normalize(__dirname + '/../..'),
-  sessionSecret: 'lessonportal',
+  // root: path.normalize(__dirname + '/../..'),
+  // sessionSecret: 'lessonportal',
 
   mongo: {
     MONGODB_URL : 'mongodb://localhost:27017/lessonportal'

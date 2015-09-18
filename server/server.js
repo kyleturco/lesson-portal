@@ -34,7 +34,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Routes
-app.use('/api', routes);
+app.use('/', routes);
 
 require('./auth/config');
 
