@@ -41,4 +41,9 @@ UserController.signIn = function(profile, done, token) {
   })
 }
 
+// User.logout = function (req, res) {
+//   req.logout();
+//   res.redirect('/');
+// };
+
 module.exports = UserController;

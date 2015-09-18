@@ -14,5 +14,14 @@ router.get('/auth/google/callback',
     res.redirect('/');
   });
 
+router.get('/logout', function(req, res){
+  // var name = req.user.username;
+  // console.log("LOGGIN OUT " + req.user.username)
+  req.logout();
+  res.redirect('/');
+  req.session.notice = "You have successfully been logged out " + name + "!";
+});
+
+
 // Return router
 module.exports = router;
