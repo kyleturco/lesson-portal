@@ -3,8 +3,12 @@
     .teacher.login-box.col-md-6
       h2 Teachers
       p Teacher? Sign-up now to get started
-      a(href="/auth/google") Sign In with Google
+      a(href="/auth/google" ng-click="login()") Sign In with Google
     .student.login-box.col-md-6
       h2 Students
       p Sign in with your Google account to start learning
       a(href="/auth/google") Sign In with Google
+    .login.col-md-12
+      h2 Already a user?
+      h5 Sign in here!
+

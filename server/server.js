@@ -7,7 +7,8 @@ var express     = require('express'),
     bodyParser  = require('body-parser'),
     passport    = require('passport'),
     routes      = require('./routes'),
-    config      = require('./lib/secrets')
+    config      = require('./lib/secrets'),
+    session     = require('express-session')
 
 // __dirname === /Users/kyle/projects/lesson-portal/server/
 // adding .. == /Users/kyle/projects/lesson-portal/server/../
@@ -25,6 +26,14 @@ app.use(express.static(SERVER_ROOT));
 
 // MongoDB
 mongoose.connect('mongodb://localhost:27017/lessonportal')
+
+// Secret for passport
+app.use(session({
+    secret: config.sessionSecret,
+    resave: false,
+    saveUninitialized: true
+}));
+
 
 // Initialize passport
 app.use(passport.initialize());

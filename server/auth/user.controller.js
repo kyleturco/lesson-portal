@@ -30,6 +30,7 @@ UserController.signIn = function(profile, done, token) {
       newUser.token = token;
       newUser.name  = profile._json.displayName;
       newUser.email = profile._json.email;
+      newUser.isTeacher = false;
 
       newUser.save(function(err) {
         if (err) {
@@ -41,9 +42,13 @@ UserController.signIn = function(profile, done, token) {
   })
 }
 
-// User.logout = function (req, res) {
-//   req.logout();
-//   res.redirect('/');
-// };
+UserController.logout = function (req, res) {
+  // req.session.destory(function () {
+  //   res.send({message: "user has logged out"});
+  // })
+  req.logout();
+  res.redirect('/');
+  console.log('logout function fired');
+};
 
 module.exports = UserController;

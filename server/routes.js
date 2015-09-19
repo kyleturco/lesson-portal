@@ -24,5 +24,7 @@ router.get('/users', function(req, res) {
   });
 })
 
+router.get('/logout', auth);
+
 // Return router
 module.exports = router;
