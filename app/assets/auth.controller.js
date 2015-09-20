@@ -1,13 +1,13 @@
  angular
   .module('lessonPortal')
-  .controller('authController', function ($scope, $http, $location) {
+  .controller('authController', function ($scope, $http, $location, $window) {
 
     $scope.login = function() {
-      localStorage.setItem('auth', true);
-      if (localStorage.auth === 'true') {
-        $location.path("/teacher");
-        console.log('does this work?')
-      }
+      localStorage.setItem('auth', 'true');
+      // if (localStorage.auth === 'true') {
+      //   $location.path("/teacher");
+      //   console.log('does this work?')
+      // }
     }
 
     if ($location.path() === '/logout') {
