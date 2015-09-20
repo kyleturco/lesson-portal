@@ -6,26 +6,22 @@ angular
       .when('/', {
         templateUrl: 'views/teacher-home.html',
         controller: 'teacherCtrl',
-        controllerAs: 'teacher',
-        access: {restricted: true}
+        controllerAs: 'teacher'
       })
       .when('/login', {
         templateUrl: 'views/login.html',
         controller: 'loginController',
-        controllerAs: 'login',
-        access: {restricted: false}
+        controllerAs: 'login'
       })
       .when('/logout', {
         templateUrl: 'views/logout.html',
         controller: 'logoutController',
-        controllerAs: 'logout',
-        access: {restricted: true}
+        controllerAs: 'logout'
       })
       .when('/register', {
         templateUrl: 'views/register.html',
         controller: 'registerController',
-        controllerAs: 'register',
-        access: {restricted: false}
+        controllerAs: 'register'
       })
       .otherwise({
         templateUrl: 'assets/static/404.html'

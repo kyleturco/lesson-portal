@@ -1,11 +1,16 @@
 var mongo = require('mongodb').MongoClient;
 
-var url = process.env.MONGODB_URL;
+var url = require('../lib/secrets').db;
 
 var database;
 
-if (!global.db) {
+module.exports.connect = function connect(cb) {
   mongo.connect(url, function(err, db) {
-    global.db = db;
-  });
+    database = db || null;
+    cb(err, db);
+  })
+}
+
+module.exports.getDb = function () {
+  return database;
 }

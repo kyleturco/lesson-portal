@@ -1,67 +1,72 @@
-'use strict';
+'use strict'
 
-// Dependencies
-var express       = require('express'),
-    logger        = require('morgan'),
-    cookieParser  = require('cookie-parser'),
-    bodyParser    = require('body-parser'),
-    session       = require('express-session'),
-    path          = require('path'),
-    hash          = require('bcrypt-nodejs'),
-    mongoose      = require('mongoose'),
-    passport      = require('passport'),
-    config        = require('./lib/secrets'),
-    routes        = require('./routes/routes'),
-    users          = require('./routes/users'),
-    localStrategy = require('passport-local').Strategy;
+var express         = require('express'),
+    sass            = require('node-sass-middleware'),
+    bodyParser      = require('body-parser'),
+    api             = require('./api/routes'),
+    secrets         = require('./lib/secrets'),
+    session         = require('express-session'),
+    path            = require('path'),
+    cookieParser    = require('cookie-parser');
 
-// __dirname === /Users/kyle/projects/lesson-portal/server/
-// adding .. == /Users/kyle/projects/lesson-portal/server/../
-// path.resolve == /Users/kyle/projects/lesson-portal/
+//bringing in the database module
+var database = require('./lib/mongodb');
 
 var PROJECT_ROOT = path.resolve(__dirname, '..');
 var SERVER_ROOT = PROJECT_ROOT + '/build';
 
-// Express
 var app = express();
-
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-
 app.use(express.static(SERVER_ROOT));
 
-// mongoose
-mongoose.connect('mongodb://localhost:27017/lessonportal')
+//session middleware
+app.use(session({
+  secret: secrets.session,
+  resave: false,
+  saveUninitialized: true
+}))
 
-// define middleware
-// app.use(express.static(path.join(__dirname, '../client')));
-// app.use(logger('dev'));
+app.use(function (req, res, next) {
+  console.log('SESSION>>>>>>>>>>', req.session)
+  next();
+})
+
+//setting the local user value for that response
+app.use(function getAuthStatus(req, res, next) {
+  if (req.session.user) {
+    console.log(req.session.user)
+    res.locals.user = req.session.user;
+  } else {
+    res.locals.user = null;
+  }
+  next();
+})
+
+app.set('view engine', 'jade');
+app.use(sass({
+  dest: 'www/css',
+  outputStyle: 'compressed',
+  prefix: '/css',
+  sourceMap: app.get('env') === 'production' ? 'false' : true,
+  src: '../styles',
+  force: true
+}));
+
+//makes the body available from post requests
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(session({
-    secret: config.sessionSecret,
-    resave: false,
-    saveUninitialized: false
-}));
-// initialize passport
-app.use(passport.initialize());
-// enable persistent login sessions
-app.use(passport.session());
-app.use(express.static(path.join(__dirname, 'build')));
 
-// Routes
-app.use('/', routes);
+app.use(function (req, res, next) {
+  if (req.session.user) {
+    next();
+  } else {
+    res.send(403, {redirect: true})
+  }
+})
 
-// configure passport
-var User = require('./models/user.model');
-passport.use(new localStrategy(User.authenticate()));
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
-
-app.get('/', function(req, res) {
-  res.sendFile(path.join(__dirname, '../build', 'index.html'));
-});
+app.use('/users', require('./routes/users'))
+app.use('/api', api);
+// app.use('/', routes);
 
 // Start Server
 var server = app.listen(3000, function () {
@@ -85,4 +90,3 @@ app.use(function(err, req, res) {
 });
 
 module.exports = app;
-
