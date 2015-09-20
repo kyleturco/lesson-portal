@@ -18,7 +18,9 @@
   "homepage": "https://github.com/kyleturco/lesson-portal#readme",
   "dependencies": {
     "babel": "^5.8.21",
+    "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.13.3",
+    "cookie-parser": "^1.4.0",
     "del": "^1.2.1",
     "errorhandler": "^1.4.2",
     "express": "^4.13.3",
@@ -58,6 +60,8 @@
     "passport": "^0.3.0",
     "passport-google": "^0.3.0",
     "passport-google-oauth": "^0.2.0",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^2.0.0",
     "passport-twitter": "^1.0.3"
   },
   "devDependencies": {

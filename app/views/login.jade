@@ -1,14 +1,28 @@
 .login-background
   .container
-    .teacher.login-box.col-md-6
-      h2 Teachers
-      p Teacher? Sign-up now to get started
-      a(href="/auth/google" ng-click="login()") Sign In with Google
-    .student.login-box.col-md-6
-      h2 Students
-      p Sign in with your Google account to start learning
-      a(href="/auth/google") Sign In with Google
-    .login.col-md-12
-      h2 Already a user?
-      h5 Sign in here!
+    .register.col-md-6
+      h2 Login
+      p Already a user, get rockin!
+      form(role='form', action="/login", method="post", style='max-width: 300px;')
+        .form-group
+            input.form-control(type='text', name="username", placeholder='Enter Username')
+        .form-group
+          input.form-control(type='password', name="password", placeholder='Password')
+        button.btn.btn-default(type='submit') Submit
+        &nbsp;
+        a(href='/')
+          button.btn.btn-primary(type="button") Cancel
+
+    .login.col-md-6
+      h2 Sign up today!
+      h5 Get going right now!
+      form(role='form', action="/register",method="post", style='max-width: 300px;')
+        .form-group
+            input.form-control(type='text', name="username", placeholder='Enter Username')
+        .form-group
+          input.form-control(type='password', name="password", placeholder='Password')
+        button.btn.btn-default(type='submit') Submit
+        &nbsp;
+        a(href='/')
+          button.btn.btn-primary(type="button") Cancel
 

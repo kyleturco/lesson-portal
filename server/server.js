@@ -1,14 +1,19 @@
 'use strict';
 
 // Dependencies
-var express     = require('express'),
-    path        = require('path'),
-    mongoose    = require('mongoose'),
-    bodyParser  = require('body-parser'),
-    passport    = require('passport'),
-    routes      = require('./routes'),
-    config      = require('./lib/secrets'),
-    session     = require('express-session')
+var express       = require('express'),
+    logger        = require('morgan'),
+    cookieParser  = require('cookie-parser'),
+    bodyParser    = require('body-parser'),
+    session       = require('express-session'),
+    path          = require('path'),
+    hash          = require('bcrypt-nodejs'),
+    mongoose      = require('mongoose'),
+    passport      = require('passport'),
+    config        = require('./lib/secrets'),
+    routes        = require('./routes/routes'),
+    users          = require('./routes/users'),
+    localStrategy = require('passport-local').Strategy;
 
 // __dirname === /Users/kyle/projects/lesson-portal/server/
 // adding .. == /Users/kyle/projects/lesson-portal/server/../
@@ -19,31 +24,44 @@ var SERVER_ROOT = PROJECT_ROOT + '/build';
 
 // Express
 var app = express();
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.use(express.static(SERVER_ROOT));
 
-// MongoDB
+// mongoose
 mongoose.connect('mongodb://localhost:27017/lessonportal')
 
-// Secret for passport
+// define middleware
+// app.use(express.static(path.join(__dirname, '../client')));
+// app.use(logger('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser());
 app.use(session({
     secret: config.sessionSecret,
     resave: false,
-    saveUninitialized: true
+    saveUninitialized: false
 }));
-
-// Initialize passport
+// initialize passport
 app.use(passport.initialize());
-
-// Enable persistent login sessions
+// enable persistent login sessions
 app.use(passport.session());
+app.use(express.static(path.join(__dirname, 'build')));
 
 // Routes
 app.use('/', routes);
 
-require('./auth/config');
+// configure passport
+var User = require('./models/user.model');
+passport.use(new localStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+app.get('/', function(req, res) {
+  res.sendFile(path.join(__dirname, '../build', 'index.html'));
+});
 
 // Start Server
 var server = app.listen(3000, function () {
@@ -51,18 +69,20 @@ var server = app.listen(3000, function () {
   console.log('Listening on port ' + port);
 });
 
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+    var err = new Error('Not Found');
+    err.status = 404;
+    next(err);
+});
 
+app.use(function(err, req, res) {
+  res.status(err.status || 500);
+  res.end(JSON.stringify({
+    message: err.message,
+    error: {}
+  }));
+});
 
-// not relevant yet
-// var mongoUrl = require ('./lib/secrets')
+module.exports = app;
 
-// Set up routers
-// var router = express.Router();
-
-
-// 404 handling
-// app.use(function(req, res, next) {
-//   var err = new Error('Not found');
-//   err.status = 404;
-//   next(err);
-// });
