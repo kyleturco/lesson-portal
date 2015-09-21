@@ -69,10 +69,10 @@ app.use('/api', api);
 // app.use('/', routes);
 
 // Start Server
-var server = app.listen(3000, function () {
-  var port = server.address().port;
-  console.log('Listening on port ' + port);
-});
+// var server = app.listen(3000, function () {
+//   var port = server.address().port;
+//   console.log('Listening on port ' + port);
+// });
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -88,5 +88,25 @@ app.use(function(err, req, res) {
     error: {}
   }));
 });
+
+database.connect(onDbConnect);
+
+function onDbConnect(err, db) {
+  if (err) {
+    console.error('Database Connection Error.' + err)
+  } else {
+    console.log('Database Connection Established at' + db.options.url);
+    startNodeListener();
+  }
+}
+
+function startNodeListener () {
+  var server = app.listen(app.get('port'), function () {
+    var port = server.address().port;
+    var mode = app.get('env');
+
+    console.log('Server listening on port ' + port + ' in ' + mode + ' mode...');
+  });
+}
 
 module.exports = app;
