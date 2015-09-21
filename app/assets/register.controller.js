@@ -15,8 +15,9 @@ angular
       }
 
       main.register = function () {
+        console.log('booom!')
         $http
-          .post('users/register', main.info)
+          .post('/users/register', main.info)
           .success(function () {
             $location.path('/');
           })

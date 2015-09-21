@@ -5,9 +5,9 @@ var router = express.Router();
 
 var User = require('../user/user')
 
-
 router
   .post('/register', function (req, res) {
+    console.log('HEYYYEYYEYY!')
     User.create(req.body, function (err, user) {
       req.session.regenerate(function () {
         req.session.user = user;

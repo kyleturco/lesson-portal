@@ -14,7 +14,7 @@ var database = require('./lib/mongodb');
 
 var PROJECT_ROOT = path.resolve(__dirname, '..');
 var SERVER_ROOT = PROJECT_ROOT + '/build';
-
+var userRoutes = require('./routes/users')
 var app = express();
 app.use(express.static(SERVER_ROOT));
 
@@ -56,15 +56,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.use(function (req, res, next) {
-  if (req.session.user) {
-    next();
-  } else {
-    res.send(403, {redirect: true})
-  }
-})
-
-var userRoutes = require('./routes/users')
+// app.use(function (req, res, next) {
+//   if (req.session.user) {
+//     next();
+//   } else {
+//     res.status(403).send({redirect: true})
+//   }
+// })
 
 app.use('/users', userRoutes)
 app.use('/api', api);
