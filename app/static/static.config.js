@@ -5,7 +5,7 @@ angular
     $routeProvider
       .when('/', {
         templateUrl: 'views/teacher-home.html',
-        controller: 'teacherCtrl',
+        controller: 'teacherController',
         controllerAs: 'teacher'
       })
       .when('/login', {

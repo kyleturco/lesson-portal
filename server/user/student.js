@@ -15,10 +15,11 @@ Object.defineProperty(Student, "collection", {
 })
 
 Student.create = function (s, cb) {
+  console.log("HEYEYEYE!!!!!");
   var student = new Student(s);
   mongo.getDb().collection('students').insertOne(student, function (err, data) {
-    console.log(data)
-    cb(err, data.ops[0]);
+    console.log(data);
+    cb(err, data);
   })
 }
 

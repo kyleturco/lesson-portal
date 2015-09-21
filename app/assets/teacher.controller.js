@@ -1,7 +1,10 @@
 angular
   .module('lessonPortal')
-  .controller('teacherCtrl',
+
+  .controller('teacherController',
     function ($scope, $http, $location) {
+
+      console.log("teacher controller is responding");
 
       var main = this;
 
@@ -12,22 +15,20 @@ angular
       }
 
       main.addStudent = function () {
+        console.log("YO YO YO YO");
         $http
-          .post('/api/students', main.student)
-          .success(function (data) {
+          .post('/students', main.student)
+          .success(function () {
             console.log('success');
-            $scope.apply();
           })
       }
 
-      main.loadStudents = function () {
-        $http
-          .get('api/students')
-          .success(function (data) {
-            main.students = data;
-          })
-      }
+      // main.loadStudents = function () {
+      //   $http
+      //     .get('api/students')
+      //     .success(function (data) {
+      //       main.students = data;
+      //     })
+      // }
   });
-
-
 
