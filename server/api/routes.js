@@ -2,6 +2,7 @@
 var express = require('express');
 var router = express.Router();
 
+var studentCtrl = require('./student.controller.js');
 // var wrkCtrl = require('./workoutcontroller.js');
 // var exerCtrl = require('./exercisecontroller.js')
 

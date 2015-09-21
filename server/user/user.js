@@ -19,21 +19,6 @@ User.create = function (u, cb) {
   })
 }
 
-// User.create = function (u, cb) {
-//   User.findByUserName(u.username, function (err, user) {
-//     if(user.username) {
-//       cb("A user with that name already exists!");
-//     } else {
-//       bcrypt.hash(u.password, 8, function (err, hash) {
-//         u.hashedPassword = hashedPassword;
-//         var user = new User(u);
-//         user.save(cb);
-//       })
-//     }
-//   })
-// }
-
-
 User.login = function (u, cb) {
   mongo.getDb().collection('users').findOne({username: u.username}, function (err, user) {
     console.log(user)

@@ -2,7 +2,8 @@
   .container
     .hero-section
       h3 Welcome, teacher!
-      h5 Student List
+    .student-list
+      h5 Students
       ul(ng-repeat='student in students')
         li {{student.name}}
           p {{student.lessonDay}} : {{student.lessonTime}}

@@ -7,7 +7,6 @@ var User = require('../user/user')
 
 router
   .post('/register', function (req, res) {
-    console.log('HEYYYEYYEYY!')
     User.create(req.body, function (err, user) {
       req.session.regenerate(function () {
         req.session.user = user;
@@ -32,6 +31,7 @@ router
   })
 
   .post('/logout', function (req, res) {
+    console.log("HEYYEHEYY!!!")
     req.session.destroy(function () {
       res.send({message: "User has logged out"})
     })
