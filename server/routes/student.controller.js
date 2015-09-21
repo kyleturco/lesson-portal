@@ -1,16 +1,22 @@
-var studentModel = require('../models/student.model')
+var Student = require('../user/student')
 
 module.exports = {
   save: function (req, res) {
-    studentModel.saveNew(req.session.user, req.body, function (err, data) {
+    Student.create(req.session.user, req.body, function (err, data) {
       if (err) {
         res.status(500).send(err)
       } else {
         res.status(200).send("Student saved");
       }
     })
+  },
+  findAll: function (req, res) {
+    studentModel.findAll(req.session.user, function (err, data) {
+      res.send(data);
+    })
   }
 }
+
 
 // module.exports = {
 //   save: function (req, res) {
@@ -30,11 +36,6 @@ module.exports = {
 //       } else {
 //         res.status(200).send("It worked")
 //       }
-//     })
-//   },
-//   findAll: function (req, res) {
-//     workOutModel.findAll(req.session.user, function (err, data) {
-//       res.send(data)
 //     })
 //   },
 //   findOne: function (req, res) {

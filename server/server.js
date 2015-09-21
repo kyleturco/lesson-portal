@@ -30,6 +30,8 @@ app.use(function (req, res, next) {
   next();
 })
 
+app.set('port', process.env.PORT || 3000);
+
 //setting the local user value for that response
 app.use(function getAuthStatus(req, res, next) {
   if (req.session.user) {

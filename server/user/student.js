@@ -1,21 +1,42 @@
 var mongo = require('../lib/mongodb.js');
 var ObjectID = require('mongodb').ObjectID;
 
-var Student = function (stu) {
-  this.name = stu.name;
-  this.lessonDay = stu.lessonDay;
-  this.lessonTime = stu.lessonTime;
+function Student(s) {
+  this.userId = ObjectID(s.userId);
+  this.name = s.name;
+  this.lessonDay = s.lessonDay;
+  this.lessonTime = s.lessonTime;
 }
 
-Student.saveNew = function (user, student, cb) {
-  console.log(student);
-  student.authorID = user._id;
-  student.author = user.username;
-  var student = new Student(student);
-  console.log(student);
-  mongo.getDb().collection('students').insertOne(student, cb)
+Object.defineProperty(Student, "collection", {
+  get: function() {
+    return global.db.collection('students');
+  }
+})
+
+Student.create = function (s, cb) {
+  var student = new Student(s);
+  mongo.getDb().collection('students').insertOne(student, function (err, data) {
+    console.log(data)
+    cb(err, data.ops[0]);
+  })
 }
 
+
+// Student.saveNew = function (user, student, cb) {
+//   console.log(student);
+//   student.authorID = user._id;
+//   student.author = user.username;
+//   var student = new Student(student);
+//   console.log(student);
+//   mongo.getDb().collection('students').insertOne(student, cb)
+// }
+
+Student.findAll = function (user, cb) {
+  mongo.getDb().collection('students').find({"authorid": user._id}).toArray(function (err, data) {
+    cb(err, data);
+  })
+}
 
 // Workout.saveNew = function (userObj, workoutObj, cb) {
 //   console.log(workoutObj)

@@ -1,16 +1,33 @@
 angular
   .module('lessonPortal')
-  .controller('teacherCtrl', function ($scope, $http) {
+  .controller('teacherCtrl',
+    function ($scope, $http, $location) {
 
-    // var main = this;
+      var main = this;
 
-    $scope.logout = function() {
-      localStorage.clear();
-    };
+      main.student = {
+        name: "",
+        lessonDay: "",
+        lessonTime: ""
+      }
 
-    // $http.get('/teacher-home').success(function(response) {
-    //   console.log("I got the data I requested");
-    //   $scope.students = response;
-    // });
+      main.addStudent = function () {
+        $http
+          .post('/api/students', main.student)
+          .success(function (data) {
+            console.log('success');
+            $scope.apply();
+          })
+      }
 
-  })
+      main.loadStudents = function () {
+        $http
+          .get('api/students')
+          .success(function (data) {
+            main.students = data;
+          })
+      }
+  });
+
+
+

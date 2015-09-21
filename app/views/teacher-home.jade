@@ -9,5 +9,14 @@
           p {{student.lessonDay}} : {{student.lessonTime}}
     hr
     .add-student-section
-      btn(class="btn btn-primary") Add New Student
+      h2 Add Student
+      p Keep track of your students and when you teach their asses
+      form(class="form" ng-submit="student.add()")
+        .form-group
+          input.form-control(type="text" name="name" placeholder="Enter Student Name" ng-model="student.info.name" required)
+        .form-group
+          input.form-control(type="text" name="day" placeholder="Lesson Day" ng-model="student.info.lessonDay")
+        .form-group
+          input.form-control(type="text" name="time" placeholder="Lesson Time" ng-model="student.info.lessonTime")
+      button.btn.btn-primary(type="submit") Add New Student
     hr
