@@ -1,13 +1,17 @@
-.login-background
+.register-background
   .container
     .register.col-md-6
       h2 Register
       p Get you an account!
-      form(class="form" ng-submit="register()")
+      form(class="form" ng-submit="register.register()")
         .form-group
-            input.form-control(class="form-conrol" type="text" name="username" placeholder="Enter Username" ng-model="registerForm.username" required)
+            input.form-control(type="text" name="username" placeholder="Enter Username" ng-model="register.info.username" required)
         .form-group
-          input.form-control(class="form-control" type="password" name="password" placeholder="Password" ng-model="registerForm.password" required)
-        button.btn.btn-default(type="submit" ng-disabled="disabled") Submit
+          input.form-control(type="password" name="password" placeholder="Password" ng-model="register.info.password" required)
+        .form-group
+           select(class="form-control" ng-model="register.info.isTeacher" required)
+            option Teacher
+            option Student
+        button.btn.btn-default(type="submit") Submit
         a(href='/')
           button.btn.btn-primary(type="button") Cancel

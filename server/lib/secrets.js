@@ -5,10 +5,8 @@ var path = require('path');
 module.exports = {
 
   sessionSecret: 'itslessontime',
+  db : 'mongodb://localhost:27017/lessonportal'
 
-  mongo: {
-    MONGODB_URL : 'mongodb://localhost:27017/lessonportal'
-  },
 };
 
 // Object.keys(secrets).forEach(function(key){

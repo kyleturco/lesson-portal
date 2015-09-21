@@ -28,11 +28,11 @@ angular
       });
   })
 
-  .run(function ($rootScope, $location, $route, AuthService) {
-    $rootScope.$on('$routeChangeStart', function (event, next, current) {
-      if (next.access.restricted && AuthService.isLoggedIn() === false) {
-        $location.path('/login');
-        $route.reload();
-      }
-    });
-  });
+  // .run(function ($rootScope, $location, $route, AuthService) {
+  //   $rootScope.$on('$routeChangeStart', function (event, next, current) {
+  //     if (AuthService.isLoggedIn() === false) {
+  //       $location.path('/login');
+  //       $route.reload();
+  //     }
+  //   });
+  // });

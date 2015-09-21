@@ -20,7 +20,7 @@ app.use(express.static(SERVER_ROOT));
 
 //session middleware
 app.use(session({
-  secret: secrets.session,
+  secret: 'doesthismakeitwork',
   resave: false,
   saveUninitialized: true
 }))

@@ -2,33 +2,24 @@ angular
   .module('lessonPortal')
 
   .controller('registerController',
-    ['$scope', '$location', 'AuthService',
-    function ($scope, $location, AuthService) {
+    function ($scope, $http, $location) {
 
-      console.log(AuthService.getUserStatus());
+      console.log("register controller is locked and loaded")
 
-      $scope.register = function () {
+      var main = this;
 
-        // initial values
-        $scope.error = false;
-        $scope.disabled = true;
+      main.info = {
+        username: "",
+        password: "",
+        isTeacher: ""
+      }
 
-        // call register from service
-        AuthService.register($scope.registerForm.username, $scope.registerForm.password)
-          // handle success
-          .then(function () {
-            $location.path('/login');
-            $scope.disabled = false;
-            $scope.registerForm = {};
+      main.register = function () {
+        $http
+          .post('users/register', main.info)
+          .success(function () {
+            $location.path('/');
           })
-          // handle error
-          .catch(function () {
-            $scope.error = true;
-            $scope.errorMessage = "Something went wrong!";
-            $scope.disabled = false;
-            $scope.registerForm = {};
-          });
-
-      };
-
-  }]);
+          console.log(main.info);
+      }
+  });
