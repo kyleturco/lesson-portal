@@ -1,16 +1,26 @@
+// var mongo = require('mongodb').MongoClient;
+
+// var url = require('../lib/secrets').db;
+
+// var database;
+
+// module.exports.connect = function connect(cb) {
+//   mongo.connect(url, function(err, db) {
+//     database = db || null;
+//     cb(err, db);
+//   })
+// }
+
+// module.exports.getDb = function () {
+//   return database;
+// }
+
 var mongo = require('mongodb').MongoClient;
 
-var url = require('../lib/secrets').db;
+var url = process.env.MONGODB_URL;
 
-var database;
-
-module.exports.connect = function connect(cb) {
+if (!global.db) {
   mongo.connect(url, function(err, db) {
-    database = db || null;
-    cb(err, db);
-  })
-}
-
-module.exports.getDb = function () {
-  return database;
+    global.db = db;
+  });
 }

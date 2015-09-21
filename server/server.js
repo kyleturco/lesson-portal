@@ -64,7 +64,9 @@ app.use(function (req, res, next) {
   }
 })
 
-app.use('/users', require('./routes/users'))
+var userRoutes = require('./routes/users')
+
+app.use('/users', userRoutes)
 app.use('/api', api);
 // app.use('/', routes);
 
