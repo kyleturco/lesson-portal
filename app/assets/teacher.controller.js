@@ -19,6 +19,9 @@ angular
           .post('/api/students', main.student)
           .success(function () {
             console.log('success');
+            main.student = {};
+            main.loadStudents();
+            $scope.$apply();
           })
       }
 
@@ -27,7 +30,6 @@ angular
           .get('/api/students')
           .success(function (data) {
             main.students = data;
-          console.log(data);
           })
       }
 

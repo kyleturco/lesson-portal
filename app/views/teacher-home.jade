@@ -1,15 +1,18 @@
-.teacher-background
+.teacher-nametag
   .container
     .hero-section
       h3 Welcome, teacher!
-      hr
-    .student-list(ng-repeat="student in teacher.students")
-      h4 Students
-      .student-individual
-        h3 {{student.name}}
-        p {{student.lessonDay}} | {{student.lessonTime}}
-      hr
-    .add-student-section.col-md-6
+.teacher-background
+  .container
+    .left-side.col-md-8
+      .student-list
+        h4 Students
+        hr
+        .student-individual(ng-repeat="student in teacher.students | orderBy:'name'")
+          h4.student-header {{student.name}}
+          p {{student.lessonDay}} | {{student.lessonTime}}
+          hr
+    .add-student-section.col-md-4
       h3 Add Student
       p Keep track of your students and when you teach their asses
       form(class="form" ng-submit="teacher.addStudent()")
