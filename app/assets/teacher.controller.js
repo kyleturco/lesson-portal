@@ -27,6 +27,7 @@ angular
           .get('/api/students')
           .success(function (data) {
             main.students = data;
+          console.log(data);
           })
       }
 

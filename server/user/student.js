@@ -34,6 +34,7 @@ Student.create = function (user, s, cb) {
 
 Student.findAll = function (user, cb) {
   mongo.getDb().collection('students').find({"teacherID": user._id}).toArray(function (err, data) {
+    console.log(data);
     cb(err, data);
   })
 }
