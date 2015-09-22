@@ -17,3 +17,80 @@
     width: 40%;
     padding: 20px 20px 40px 40px;
 }
+
+
+// Header Styles
+
+.navbar {
+  background-color: #3d97d2;
+  a {
+    color: #ffffff;
+  }
+  a:hover {
+    text-decoration: none;
+    color: #beddff;
+  }
+}
+
+.logo-header {
+  font-family: 'Oswald';
+  margin-top: 23px;
+}
+
+.header-links {
+  font-family: 'Roboto';
+  text-transform: uppercase;
+  margin-top: 26px;
+  margin-bottom: 30px;
+}
+
+.header-nav-right {
+  display: block;
+  float: right;
+}
+
+.header-nav-left {
+  display: block;
+  float: left;
+}
+
+// Font Styles
+h1, h2, h3, h4, h5 {
+  font-family: 'Roboto';
+}
+
+p {
+  font-family: 'Source Sans Pro';
+  font-size: 1.7rem;
+  color: #808080;
+}
+
+// Buttons
+.main-btn {
+  color: #FFF;
+  background-color: #FF5E00;
+  border: none;
+  border-radius: 0px;
+  font-family: 'Roboto';
+  text-transform: uppercase;
+  padding: 10px 19px 10px 19px;
+}
+
+.main-btn:hover {
+    color: #ffffff;
+    background-color: #ff8137;
+}
+
+
+// Teacher Homepage
+.add-student-section {
+  border: 1px solid #dedede;
+  padding: 35px;
+  background-color: #f0f0f0;
+  h3 {
+    margin-top: 0px;
+  }
+  .main-btn {
+    margin-top: 12px;
+  }
+}

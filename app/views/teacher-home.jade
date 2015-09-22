@@ -3,11 +3,10 @@
     .hero-section
       h3 Welcome, teacher!
     .student-list
-      h5 Students
+      h4 Students
 
-    hr
-    .add-student-section
-      h2 Add Student
+    .add-student-section.col-md-8
+      h3 Add Student
       p Keep track of your students and when you teach their asses
       form(class="form" ng-submit="teacher.addStudent()")
         .form-group
@@ -16,5 +15,4 @@
           input.form-control(type="text" name="day" placeholder="Lesson Day" ng-model="teacher.student.lessonDay")
         .form-group
           input.form-control(type="text" name="time" placeholder="Lesson Time" ng-model="teacher.student.lessonTime")
-        button.btn.btn-default(type="submit") Add New Student
-    hr
+        button.btn.btn-default.main-btn(type="submit") Add New Student
