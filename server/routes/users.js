@@ -16,6 +16,7 @@ router
   })
 
   .post('/login', function (req, res) {
+    console.log("IS THIS LOGIN FUNCTION A THING?!?!?")
     User.login(req.body, function (err, user) {
       if (err) {
         res.status(403).send(err)

@@ -11,7 +11,7 @@ module.exports = {
     })
   },
   findAll: function (req, res) {
-    studentModel.findAll(req.session.user, function (err, data) {
+    Student.findAll(req.session.user, function (err, data) {
       res.send(data);
     })
   }

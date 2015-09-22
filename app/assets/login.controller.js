@@ -2,33 +2,27 @@ angular
   .module('lessonPortal')
 
   .controller('loginController',
-    ['$scope', '$location', 'AuthService',
-    function ($scope, $location, AuthService) {
+    function ($scope, $location, AuthService, $http, $rootScope) {
 
-      console.log(AuthService.getUserStatus());
+      var main = this;
 
-      $scope.login = function () {
+      console.log("login controller locked & loaded")
 
-        // initial values
-        $scope.error = false;
-        $scope.disabled = true;
+      main.info = {
+        username: "",
+        password: ""
+      }
 
-        // call login from service
-        AuthService.login($scope.loginForm.username, $scope.loginForm.password)
-          // handle success
-          .then(function () {
-            $location.path('/');
-            $scope.disabled = false;
-            $scope.loginForm = {};
+      main.login = function () {
+        $http
+          .post('/users/login', main.info)
+          .success(function (data) {
+            // $rootScope.userData = data;
+            $location.path('/')
           })
-          // handle error
-          .catch(function () {
-            $scope.error = true;
-            $scope.errorMessage = "Invalid username and/or password";
-            $scope.disabled = false;
-            $scope.loginForm = {};
-          });
+          .error(function (data) {
+            console.log(data);
+          })
+      }
+  });
 
-      };
-
-  }]);

@@ -2,7 +2,7 @@ angular
   .module('lessonPortal')
 
   .controller('teacherController',
-    function ($scope, $http, $location, $routeParams) {
+    function ($scope, $http, $location) {
 
       console.log("teacher controller is responding");
 
@@ -16,7 +16,7 @@ angular
 
       main.addStudent = function () {
         $http
-          .post('/students', main.student)
+          .post('/api/students', main.student)
           .success(function () {
             console.log('success');
           })
@@ -25,7 +25,7 @@ angular
       main.loadStudents = function () {
         console.log("does this make this go?");
         $http
-          .get('/students')
+          .get('/api/students')
           .success(function (data) {
             main.students = data;
           })

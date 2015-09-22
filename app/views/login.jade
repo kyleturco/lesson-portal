@@ -3,11 +3,11 @@
     .register.col-md-6
       h2 Login
       p Already a user, get rockin!
-      form(class="form" ng-submit="login()")
+      form(class="form" ng-submit="login.login()")
         .form-group
-            input.form-control(type="text" name="username" placeholder="Enter Username" ng-model="loginForm.username" required)
+            input.form-control(type="text" name="username" placeholder="Enter Username" ng-model="login.info.username" required)
         .form-group
-          input.form-control(type="password" name="password" placeholder="Password" ng-model="loginForm.password" required)
-        button.btn.btn-default(type="submit" ng-disabled="disabled") Submit
+          input.form-control(type="password" name="password" placeholder="Password" ng-model="login.info.password" required)
+        button.btn.btn-default(type="submit") Submit
         a(href='/')
           button.btn.btn-primary(type="button") Cancel
