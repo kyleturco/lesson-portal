@@ -1,6 +1,6 @@
 .login-background
   .container
-    .register.col-md-6
+    .register.col-md-5
       h2 Login
       p Already a user, get rockin!
       form(class="form" ng-submit="login.login()")
@@ -8,6 +8,9 @@
             input.form-control(type="text" name="username" placeholder="Enter Username" ng-model="login.info.username" required)
         .form-group
           input.form-control(type="password" name="password" placeholder="Password" ng-model="login.info.password" required)
-        button.btn.btn-default(type="submit") Submit
-        a(href='/')
-          button.btn.btn-primary(type="button") Cancel
+        .register-buttons
+          button.btn.btn-default.main-btn(type="submit") Submit
+          a(href='/')
+            button.btn.btn-primary.sec-btn(type="button") Cancel
+      p.register-cta Don't have an account?
+        a.register-link(href="/#/register") Sign Up Now

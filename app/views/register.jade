@@ -1,6 +1,17 @@
 .register-background
   .container
-    .register.col-md-6
+    .register-exp.col-md-7
+      .text-section
+        h2 The Easy Way to Teach Lessons
+        p Lesson Portal is a simple, on-line solution for private lesson teachers. Keep track of students, lessons plans, and payment all in one place.
+        ul.register-list
+          li
+            h4 Schedule with ease
+          li
+            h4 Maintain lesson plans
+          li
+            h4 Manage student payments
+    .register-box.col-md-5
       h2 Register
       p Get you an account!
       form(class="form" ng-submit="register.register()")
@@ -12,6 +23,24 @@
            select(class="form-control" ng-model="register.info.isTeacher" required)
             option Teacher
             option Student
-        button.btn.btn-default(type="submit") Submit
+        button.btn.btn-default.main-btn(type="submit") Submit
         a(href='/')
-          button.btn.btn-primary(type="button") Cancel
+          button.btn.btn-primary.sec-btn(type="button") Cancel
+        p.register-cta Already have an account?
+          a.register-link(href="/#/login") Sign In Now
+
+//- .icon-1
+//-   .register-icon
+//-     i(class="fa fa-calendar")
+//-   .register-text
+//-     h4 Schedule with ease
+//- .icon-2
+//-   .register-icon
+//-     i(class="fa fa-pencil-square-o")
+//-   .register-text
+//-     h4 Maintain lesson plans
+//- .icon-3
+//-   .register-icon
+//-     i(class="fa fa-bar-chart")
+//-   .register-text
+//-     h4 Manage student payments
