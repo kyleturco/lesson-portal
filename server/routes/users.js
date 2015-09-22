@@ -8,25 +8,18 @@ var User = require('../user/user')
 router
   .post('/register', function (req, res) {
     User.create(req.body, function (err, user) {
-      req.session.regenerate(function () {
-        req.session.user = user;
-        res.status(200).send({win: true})
-      })
+      req.session.user = user;
+      res.status(200).send({user: user.username})
     })
   })
 
   .post('/login', function (req, res) {
-    console.log("IS THIS LOGIN FUNCTION A THING?!?!?")
     User.login(req.body, function (err, user) {
       if (err) {
         res.status(403).send(err)
       } else {
-        res.locals.user = user;
-        req.session.regenerate(function () {
-          console.log('USER>>>>>>', user)
-          req.session.user = user;
-          res.status(200).send({win: true})
-        })
+        req.session.user = user;
+        res.status(200).send({user: user.username})
       }
     })
   })
