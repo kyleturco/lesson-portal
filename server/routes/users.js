@@ -32,7 +32,6 @@ router
   })
 
   .post('/logout', function (req, res) {
-    console.log("HEYYEHEYY!!!")
     req.session.destroy(function () {
       res.send({message: "User has logged out"})
     })
