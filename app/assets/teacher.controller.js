@@ -23,7 +23,6 @@ angular
       }
 
       main.loadStudents = function () {
-        console.log("does this make this go?");
         $http
           .get('/api/students')
           .success(function (data) {

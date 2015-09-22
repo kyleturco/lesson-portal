@@ -3,8 +3,11 @@
     .hero-section
       h3 Welcome, teacher!
       hr
-    .student-list
+    .student-list(ng-repeat="student in students")
       h4 Students
+      .student-individual
+        h3 {{student.name}}
+        p {{student.lessonDay}} | {{student.lessonTime}}
       hr
     .add-student-section.col-md-6
       h3 Add Student

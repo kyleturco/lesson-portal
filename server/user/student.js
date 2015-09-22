@@ -2,7 +2,6 @@ var mongo = require('../lib/mongodb.js');
 var ObjectID = require('mongodb').ObjectID;
 
 function Student(s) {
-  this.userId = ObjectID(s.userId);
   this.name = s.name;
   this.lessonDay = s.lessonDay;
   this.lessonTime = s.lessonTime;
@@ -16,6 +15,7 @@ Object.defineProperty(Student, "collection", {
 
 Student.create = function (user, s, cb) {
   var student = new Student(s);
+  student.teacherID = user._id;
   mongo.getDb().collection('students').insertOne(student, function (err, data) {
     console.log(data);
     cb(err, data);
@@ -33,7 +33,7 @@ Student.create = function (user, s, cb) {
 // }
 
 Student.findAll = function (user, cb) {
-  mongo.getDb().collection('students').find({"authorid": user._id}).toArray(function (err, data) {
+  mongo.getDb().collection('students').find({"teacherID": user._id}).toArray(function (err, data) {
     cb(err, data);
   })
 }
