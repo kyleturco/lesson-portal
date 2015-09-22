@@ -2,7 +2,7 @@ angular
   .module('lessonPortal')
 
   .controller('loginController',
-    function ($scope, $location, AuthService, $http, $rootScope) {
+    function ($scope, $location, $http, $rootScope) {
 
       var main = this;
 
