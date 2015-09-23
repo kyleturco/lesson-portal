@@ -22,21 +22,16 @@ Student.create = function (user, s, cb) {
   })
 }
 
-
-// Student.saveNew = function (user, student, cb) {
-//   console.log(student);
-//   student.authorID = user._id;
-//   student.author = user.username;
-//   var student = new Student(student);
-//   console.log(student);
-//   mongo.getDb().collection('students').insertOne(student, cb)
-// }
-
 Student.findAll = function (user, cb) {
   mongo.getDb().collection('students').find({"teacherID": user._id}).toArray(function (err, data) {
     console.log(data);
     cb(err, data);
   })
 }
+
+// Delete function (Not working yet!)
+// Student.delete = function (user, cb) {
+//   mongo.getDb().collection('students').remove({_id: this._id})
+// }
 
 module.exports = Student;

@@ -33,6 +33,18 @@ angular
           })
       }
 
+      main.removeStudent = function () {
+        $http
+          .post('api/students/delete', main.student)
+          .success(function () {
+            if (error) {
+              console.log("Error;", error);
+            } else {
+              console.log("Student removed");
+            }
+          });
+      }
+
       main.loadStudents();
 
   });

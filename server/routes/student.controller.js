@@ -15,8 +15,23 @@ module.exports = {
     Student.findAll(req.session.user, function (err, data) {
       res.send(data);
     })
+  },
+
+  delete: function (req, res) {
+    Student.delete(req.session.user, function (err, data) {
+      if (err) {
+        res.status(500).send(err)
+      } else {
+        res.status(200).send("Student deleted");
+      }
+    })
   }
+
+
 }
+
+
+
 
 
 // module.exports = {

@@ -6,14 +6,14 @@
   .container
     .left-side.col-md-8
       .student-list
-        h4 Students
-        hr
+        h4.list-header STUDENTS
         .student-individual(ng-repeat="student in teacher.students | orderBy:'name'")
           h4.student-header {{student.name}}
           p {{student.lessonDay}} | {{student.lessonTime}}
+          button.btn.btn-danger.delete-student(type="submit" ng-submit="teacher.removeStudent()") <i class="fa fa-trash-o"></i>
           hr
     .add-student-section.col-md-4
-      h3 Add Student
+      h3 <i class="fa fa-user-plus"></i> Add Student
       p Keep track of your students and when you teach their asses
       form(class="form" ng-submit="teacher.addStudent()")
         .form-group
