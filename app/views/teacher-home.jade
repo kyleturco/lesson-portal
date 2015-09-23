@@ -10,17 +10,17 @@
         .student-individual(ng-repeat="student in teacher.students | orderBy:'name'")
           h4.student-header
             a(href="/#/{{student._id}}") {{student.name}}
-          p Lesson | {{student.lessonDay}} {{student.lessonTime}}
+          p Lesson | {{student.lessonDay}}, {{student.lessonTime | date:'hh:mm a'}}
           button.btn.btn-danger.delete-student(type="submit" ng-submit="teacher.removeStudent()") <i class="fa fa-trash-o"></i>
           hr
     .add-student-section.col-md-4
       h3 <i class="fa fa-user-plus"></i> Add Student
-      p Keep track of your students and when you teach their asses
+      p Keep track of your students lessons and times
       form(class="form" ng-submit="teacher.addStudent()")
         .form-group
-          input.form-control(type="text" name="name" placeholder="Enter Student Name" ng-model="teacher.student.name" required)
+          input.form-control(type="text" name="name" placeholder="Student Name" ng-model="teacher.student.name" required)
         .form-group
           input.form-control(type="text" name="day" placeholder="Lesson Day" ng-model="teacher.student.lessonDay")
         .form-group
-          input.form-control(type="text" name="time" placeholder="Lesson Time" ng-model="teacher.student.lessonTime")
+          input.form-control(type="time" name="time" placeholder="Lesson Time" ng-model="teacher.student.lessonTime")
         button.btn.btn-default.main-btn(type="submit") Add New Student
