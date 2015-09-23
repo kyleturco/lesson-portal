@@ -1,19 +1,16 @@
 .lesson-list-background
   .container
-    h3 {{student.name}}
+    h3 Student Name Here {{student.name}}
 .teacher-background
   .container
-    .add-student-section.col-md-12
-      h3 <i class="fa fa-user-plus"></i> Add Student
-      p Keep track of your students and when you teach their asses
-      form(class="form" ng-submit="teacher.addStudent()")
+    .add-lesson-section.col-md-12
+      h3 Add Lesson
+      form(class="form" ng-submit="teacher.addLesson()")
         .form-group
-          input.form-control(type="text" name="name" placeholder="Enter Student Name" ng-model="teacher.student.name" required)
+          input.form-control.date(type="text" name="name" placeholder="Lesson Date" ng-model="teacher.lesson.date" required)
         .form-group
-          input.form-control(type="text" name="day" placeholder="Lesson Day" ng-model="teacher.student.lessonDay")
-        .form-group
-          input.form-control(type="text" name="time" placeholder="Lesson Time" ng-model="teacher.student.lessonTime")
-        button.btn.btn-default.main-btn(type="submit") Add New Student
+          input.form-control.notes(type="text" name="notes" placeholder="Notes" ng-model="teacher.lesson.notes")
+        button.btn.btn-default.main-btn(type="submit") Add New Lesson
 
     .left-side.col-md-8
       .student-list

@@ -204,3 +204,19 @@ p {
     margin-right: 15px;
   }
 }
+
+// Lesson Page Styles
+
+.add-lesson-section {
+  border-top: 1px solid #dedede;
+  border-bottom: 1px solid #dedede;
+  padding-bottom: 31px;
+  padding-left: 0px;
+
+  .date {
+    max-width: 400px;
+  }
+  .notes {
+    height: 140px;
+  }
+}
