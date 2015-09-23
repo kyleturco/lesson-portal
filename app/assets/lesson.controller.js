@@ -11,7 +11,8 @@ angular
       main.lesson = {
         lessonDate: "",
         lessonNotes: "",
-        lessonEtc: ""
+        lessonEtc: "",
+        studentID: $scope.studentID
       }
 
       main.addLesson = function () {
@@ -33,6 +34,6 @@ angular
           })
       }
 
-      loadLessons();
+      main.loadLessons();
   });
 

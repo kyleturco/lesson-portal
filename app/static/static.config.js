@@ -26,7 +26,7 @@ angular
       .when('/:studentID', {
         templateUrl: 'views/lesson-list.html',
         controller: 'lessonController',
-        controllerAs: 'lesson'
+        controllerAs: 'lessonCtrl'
       })
       .otherwise({
         templateUrl: 'assets/static/404.html'

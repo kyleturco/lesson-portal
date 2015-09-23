@@ -5,18 +5,18 @@
   .container
     .add-lesson-section.col-md-12
       h3 Add Lesson
-      form(class="form" ng-submit="lesson.addLesson()")
+      form(class="form" ng-submit="lessonCtrl.lesson.addLesson()")
         .form-group
-          input.form-control.date(type="text" name="name" placeholder="Lesson Date" ng-model="lesson.lessonDate" required)
+          input.form-control.date(type="text" name="name" placeholder="Lesson Date" ng-model="lessonCtrl.lesson.lessonDate" required)
         .form-group
-          input.form-control.notes(type="text" name="notes" placeholder="Notes" ng-model="lesson.lessonNotes")
+          input.form-control.notes(type="text" name="notes" placeholder="Notes" ng-model="lessonCtrl.lesson.lessonNotes")
         button.btn.btn-default.main-btn(type="submit") Add New Lesson
 .lesson-list-background
   .container
     .left-side.col-md-8
       .lesson-list
         h4.list-header LESSONS
-        .student-individual(ng-repeat="lessonItem in lesson.lessons | orderBy:'name'")
+        .student-individual(ng-repeat="lessonItem in lessonCtrl.lessons | orderBy:'name'")
           h4.lesson-header
             a(href="/{{student._id}}/{{lessonItem._id") {{lessonItem.name}}
           button.btn.btn-danger.delete-student(type="submit" ng-submit="lessonItem.removeLesson()") <i class="fa fa-trash-o"></i>
