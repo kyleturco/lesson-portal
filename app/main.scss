@@ -210,19 +210,21 @@ p {
 .lesson-list-bkg {
   background-color: #f0f0f0;
   margin-top: -22px;
-}
-
-.add-lesson-bkg {
-  background-color: #f0f0f0;
   border-bottom: 1px solid #dedede;
 }
 
+// .add-lesson-bkg {
+//   background-color: #f0f0f0;
+//   border-bottom: 1px solid #dedede;
+// }
+
 .add-lesson-section {
-  border-top: 1px solid #dedede;
+  // border-top: 1px solid #dedede;
   // border-bottom: 1px solid #dedede;
   padding-bottom: 31px;
   padding-left: 0px;
   margin-bottom: 15px;
+  border-bottom: 1px solid #dedede;
   .date {
     max-width: 35%;
   }
