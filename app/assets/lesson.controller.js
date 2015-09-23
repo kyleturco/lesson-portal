@@ -24,19 +24,19 @@ angular
           .success(function () {
             console.log('success');
             main.lesson = {};
-            main.loadLessons();
+            // main.loadLessons();
             // $scope.$apply();
           })
       }
 
-      main.loadLessons = function () {
-        $http
-          .get('/api/lessons')
-          .success(function (data) {
-            main.lessons = data;
-          })
-      }
+      // main.loadLessons = function () {
+      //   $http
+      //     .get('/api/lessons')
+      //     .success(function (data) {
+      //       main.lessons = data;
+      //     })
+      // }
 
-      main.loadLessons();
+      // main.loadLessons();
   });
 

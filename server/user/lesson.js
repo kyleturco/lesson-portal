@@ -5,6 +5,7 @@ function Lesson(l) {
   this.lessonDate = l.lessonDate;
   this.lessonNotes = l.lessonNotes;
   this.lessonEtc = l.lessonEtc;
+  this.studentID = l.studentID;
 }
 
 Object.defineProperty(Lesson, "collection", {
@@ -13,10 +14,9 @@ Object.defineProperty(Lesson, "collection", {
   }
 })
 
-Lesson.create = function (lesson, l, cb) {
+Lesson.create = function (user, l, cb) {
   var lesson = new Lesson(l);
   lesson.teacherID = user._id;
-  // lesson.studentID = ??????
   mongo.getDb().collection('lessons').insertOne(lesson, function (err, data) {
     console.log(data);
     cb(err, data);
