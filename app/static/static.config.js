@@ -23,6 +23,11 @@ angular
         controller: 'registerController',
         controllerAs: 'register'
       })
+      .when('/:studentID', {
+        templateUrl: 'views/lesson-list.html',
+        controller: 'teacherController',
+        controllerAs: 'teacher'
+      })
       .otherwise({
         templateUrl: 'assets/static/404.html'
       });

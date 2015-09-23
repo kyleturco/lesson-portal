@@ -43,8 +43,9 @@ User.pull = function (id, cb) {
       cb(err, null)
     } else {
       var response = data;
-      response.hashedPassword = ""
-      response.email = ""
+      response.hashedPassword = "";
+      response.email = "";
+      response.username = "";
       cb(null, response)
     }
   })

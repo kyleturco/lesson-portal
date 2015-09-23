@@ -1,19 +1,9 @@
-.teacher-nametag
+.lesson-list-background
   .container
-    .hero-section(ng-model="getUser")
-      h3 Welcome, {{teacher.user}}
+    h3 {{student.name}}
 .teacher-background
   .container
-    .left-side.col-md-8
-      .student-list
-        h4.list-header STUDENTS
-        .student-individual(ng-repeat="student in teacher.students | orderBy:'name'")
-          h4.student-header
-            a(href="/#/{{student._id}}") {{student.name}}
-          p Lesson | {{student.lessonDay}} {{student.lessonTime}}
-          button.btn.btn-danger.delete-student(type="submit" ng-submit="teacher.removeStudent()") <i class="fa fa-trash-o"></i>
-          hr
-    .add-student-section.col-md-4
+    .add-student-section.col-md-12
       h3 <i class="fa fa-user-plus"></i> Add Student
       p Keep track of your students and when you teach their asses
       form(class="form" ng-submit="teacher.addStudent()")
@@ -24,3 +14,12 @@
         .form-group
           input.form-control(type="text" name="time" placeholder="Lesson Time" ng-model="teacher.student.lessonTime")
         button.btn.btn-default.main-btn(type="submit") Add New Student
+
+    .left-side.col-md-8
+      .student-list
+        h4.list-header LESSONS
+        .student-individual(ng-repeat="lesson in lesson.lessons | orderBy:'name'")
+          h4.lesson-header
+            a(href="/{{student._id}}/{{lesson._id") {{lesson.name}}
+          button.btn.btn-danger.delete-student(type="submit" ng-submit="lesson.removeLesson()") <i class="fa fa-trash-o"></i>
+          hr

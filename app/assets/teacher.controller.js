@@ -2,7 +2,7 @@ angular
   .module('lessonPortal')
 
   .controller('teacherController',
-    function ($scope, $http, $location) {
+    function ($scope, $http, $location, $routeParams) {
 
       console.log("teacher controller is responding");
 
@@ -11,7 +11,8 @@ angular
       main.student = {
         name: "",
         lessonDay: "",
-        lessonTime: ""
+        lessonTime: "",
+        _id: ""
       }
 
       main.addStudent = function () {
@@ -43,6 +44,68 @@ angular
               console.log("Student removed");
             }
           });
+      }
+
+
+      // main.getUser = function () {
+      //   $http
+      //     .get('/login', main.user)
+      //     .success(function (data) {
+      //       user = user.username;
+      //       console.log(user);
+      //     })
+      // }
+
+
+      main.loadStudents();
+
+      $scope.studentID = $routeParams.studentID;
+
+      main.lesson = {
+        lessonDate: "",
+        lessonNotes: "",
+        lessonEtc: ""
+      }
+
+      main.addLesson = function () {
+        $http
+          .post('/api/lessons', main.student)
+          .success(function () {
+            console.log('success');
+            main.student = {};
+            main.loadStudents();
+            $scope.$apply();
+          })
+      }
+
+      main.loadLesson = function () {
+        $http
+          .get('/api/lessons')
+          .success(function (data) {
+            main.students = data;
+          })
+      }
+
+      main.removeLesson = function () {
+        $http
+          .post('api/lessons/delete', main.student)
+          .success(function () {
+            if (error) {
+              console.log("Error;", error);
+            } else {
+              console.log("Student removed");
+            }
+          });
+      }
+
+
+      main.getUser = function () {
+        $http
+          .get('/login', main.user)
+          .success(function (data) {
+            user = user.username;
+            console.log(user);
+          })
       }
 
       main.loadStudents();
