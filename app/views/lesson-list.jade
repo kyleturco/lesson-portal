@@ -7,7 +7,7 @@
     .add-lesson-section.col-md-12
       form(class="form" ng-submit="lessonCtrl.addLesson()")
         .form-group
-          input.form-control.date(type="text" name="name" placeholder="Lesson Date" ng-model="lessonCtrl.lesson.lessonDate" required)
+          input.form-control.date(type="date" name="name" placeholder="Lesson Date" ng-model="lessonCtrl.lesson.lessonDate" required)
         .form-group
           input.form-control.enter-notes(type="text" name="notes" placeholder="Notes" ng-model="lessonCtrl.lesson.lessonNotes")
         button.btn.btn-default.main-btn(type="submit") Add New Lesson
@@ -19,7 +19,7 @@
         .student-individual(ng-repeat="lessonItem in lessonCtrl.lessons | orderBy:'name'")
           button.btn.btn-danger.delete-student(type="submit" ng-submit="lessonItem.removeLesson()") <i class="fa fa-trash-o"></i>
           h4.lesson-header
-            a(href="/#/{{studentID}}/{{lessonItem._id") {{lessonItem.lessonDate}}
+            a(href="/#/{{studentID}}/{{lessonItem._id") {{lessonItem.lessonDate | date:'M/d/yyyy'}}
             h5(a href="#" ng-model="collapsed" ng-click="collapsed=!collapsed") <i class="fa fa-plus-square-o"></i> See Description
             p(class="lesson-dsc" ng-show="collapsed") {{lessonItem.lessonNotes}}
           hr

@@ -21,7 +21,7 @@ angular
           .success(function () {
             console.log('success');
             main.lesson = {};
-            // main.loadLessons();
+            main.loadLessons();
             // $scope.$apply();
           })
       }
