@@ -6,10 +6,7 @@ angular
 
       var main = this;
 
-      console.log("lesson controller is alive and kicking");
-
-      var studentID = $routeParams.studentID;
-      console.log(studentID);
+      var studentID = {studentID: $routeParams.studentID};
 
       main.lesson = {
         lessonDate: "",
@@ -29,14 +26,14 @@ angular
           })
       }
 
-      // main.loadLessons = function () {
-      //   $http
-      //     .get('/api/lessons')
-      //     .success(function (data) {
-      //       main.lessons = data;
-      //     })
-      // }
+      main.loadLessons = function () {
+        $http
+          .post('/api/lessons/retrieve', studentID)
+          .success(function (data) {
+            main.lessons = data;
+          })
+      }
 
-      // main.loadLessons();
+      main.loadLessons();
   });
 

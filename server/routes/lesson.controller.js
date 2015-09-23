@@ -12,7 +12,7 @@ module.exports = {
   },
 
   findAll: function (req, res) {
-    Lesson.findAll(req.session.user, function (err, data) {
+    Lesson.findAll(req.body, req.session.user, function (err, data) {
       res.send(data);
     })
   },

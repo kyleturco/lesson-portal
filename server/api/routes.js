@@ -9,7 +9,7 @@ router.post('/students', studentCtrl.save);
 router.get('/students', studentCtrl.findAll);
 
 router.post('/lessons', lessonCtrl.save);
-router.get('/lessons', lessonCtrl.findAll);
+router.post('/lessons/retrieve', lessonCtrl.findAll);
 
 
 module.exports = router;

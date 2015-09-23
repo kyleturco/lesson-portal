@@ -207,6 +207,10 @@ p {
 
 // Lesson Page Styles
 
+.left-side {
+  padding-left: 0px;
+}
+
 .lesson-list-bkg {
   background-color: #f0f0f0;
   margin-top: -22px;
@@ -224,7 +228,6 @@ p {
   padding-bottom: 31px;
   padding-left: 0px;
   margin-bottom: 15px;
-  border-bottom: 1px solid #dedede;
   .date {
     max-width: 35%;
   }
@@ -237,4 +240,7 @@ p {
 .lesson-list {
   margin-top: 20px;
   padding-left: 0px;
+  .delete-student {
+    margin-top: -34px;
+  }
 }

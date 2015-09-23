@@ -3,9 +3,9 @@
     h3 Student Name Here {{student.name}}
 .add-lesson-bkg
   .container
-    h3(a href="#" ng-model="collapsed" ng-click="collapsed=!collapsed") <i class="fa fa-plus-square-o"></i> Add Lesson
+    h3 <i class="fa fa-plus-square-o"></i> Add Lesson
     .add-lesson-section.col-md-12
-      form(class="form" ng-submit="lessonCtrl.addLesson()" ng-show="collapsed")
+      form(class="form" ng-submit="lessonCtrl.addLesson()")
         .form-group
           input.form-control.date(type="text" name="name" placeholder="Lesson Date" ng-model="lessonCtrl.lesson.lessonDate" required)
         .form-group
@@ -18,6 +18,8 @@
         h4.list-header LESSONS
         .student-individual(ng-repeat="lessonItem in lessonCtrl.lessons | orderBy:'name'")
           h4.lesson-header
-            a(href="/{{student._id}}/{{lessonItem._id") {{lessonItem.name}}
+            a(href="/#/{{studentID}}/{{lessonItem._id") {{lessonItem.lessonDate}}
+            h5(a href="#" ng-model="collapsed" ng-click="collapsed=!collapsed") <i class="fa fa-plus-square-o"></i> See Description
+            p(ng-show="collapsed") {{lessonItem.lessonNotes}}
           button.btn.btn-danger.delete-student(type="submit" ng-submit="lessonItem.removeLesson()") <i class="fa fa-trash-o"></i>
           hr

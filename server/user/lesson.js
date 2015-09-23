@@ -23,8 +23,8 @@ Lesson.create = function (user, l, cb) {
   })
 }
 
-Lesson.findAll = function (user, cb) {
-  mongo.getDb().collection('lessons').find({"teacherID": user._id}).toArray(function (err, data) {
+Lesson.findAll = function (studentID, user, cb) {
+  mongo.getDb().collection('lessons').find({'studentID': studentID.studentID, 'teacherID': user._id}).toArray(function (err, data) {
     console.log(data);
     cb(err, data);
   })
