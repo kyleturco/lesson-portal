@@ -4,11 +4,9 @@ angular
   .controller('lessonController',
     function ($scope, $http, $location, $routeParams) {
 
-      $scope.studentID = $routeParams.studentID;
-
-      console.log("lesson controller is responding");
-
       var main = this;
+
+      console.log("lesson controller is alive and kicking");
 
       main.lesson = {
         lessonDate: "",
@@ -18,46 +16,23 @@ angular
 
       main.addLesson = function () {
         $http
-          .post('/api/lessons', main.student)
+          .post('/api/lessons', main.lesson)
           .success(function () {
             console.log('success');
-            main.student = {};
-            main.loadStudents();
+            main.lesson = {};
+            main.loadLessons();
             $scope.$apply();
           })
       }
 
-      main.loadLesson = function () {
+      main.loadLessons = function () {
         $http
           .get('/api/lessons')
           .success(function (data) {
-            main.students = data;
+            main.lessons = data;
           })
       }
 
-      main.removeLesson = function () {
-        $http
-          .post('api/lessons/delete', main.student)
-          .success(function () {
-            if (error) {
-              console.log("Error;", error);
-            } else {
-              console.log("Student removed");
-            }
-          });
-      }
-
-
-      main.getUser = function () {
-        $http
-          .get('/login', main.user)
-          .success(function (data) {
-            user = user.username;
-            console.log(user);
-          })
-      }
-
-      main.loadStudents();
-
+      loadLessons();
   });
 

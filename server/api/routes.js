@@ -2,8 +2,8 @@
 var express = require('express');
 var router = express.Router();
 
-var studentCtrl = require('../routes/student.controller.js');
-var lessonCtrl = require('../routes/lesson.controller.js');
+var studentCtrl   = require('../routes/student.controller.js'),
+    lessonCtrl    = require('../routes/lesson.controller.js')
 
 router.post('/students', studentCtrl.save);
 router.get('/students', studentCtrl.findAll);

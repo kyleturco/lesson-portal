@@ -1,22 +1,23 @@
-.lesson-list-background
+.lesson-list-bkg
   .container
     h3 Student Name Here {{student.name}}
-.teacher-background
+.add-lesson-bkg
   .container
     .add-lesson-section.col-md-12
       h3 Add Lesson
-      form(class="form" ng-submit="teacher.addLesson()")
+      form(class="form" ng-submit="lesson.addLesson()")
         .form-group
-          input.form-control.date(type="text" name="name" placeholder="Lesson Date" ng-model="teacher.lesson.date" required)
+          input.form-control.date(type="text" name="name" placeholder="Lesson Date" ng-model="lesson.lessonDate" required)
         .form-group
-          input.form-control.notes(type="text" name="notes" placeholder="Notes" ng-model="teacher.lesson.notes")
+          input.form-control.notes(type="text" name="notes" placeholder="Notes" ng-model="lesson.lessonNotes")
         button.btn.btn-default.main-btn(type="submit") Add New Lesson
-
+.lesson-list-background
+  .container
     .left-side.col-md-8
-      .student-list
+      .lesson-list
         h4.list-header LESSONS
-        .student-individual(ng-repeat="lesson in lesson.lessons | orderBy:'name'")
+        .student-individual(ng-repeat="lessonItem in lesson.lessons | orderBy:'name'")
           h4.lesson-header
-            a(href="/{{student._id}}/{{lesson._id") {{lesson.name}}
-          button.btn.btn-danger.delete-student(type="submit" ng-submit="lesson.removeLesson()") <i class="fa fa-trash-o"></i>
+            a(href="/{{student._id}}/{{lessonItem._id") {{lessonItem.name}}
+          button.btn.btn-danger.delete-student(type="submit" ng-submit="lessonItem.removeLesson()") <i class="fa fa-trash-o"></i>
           hr
