@@ -8,11 +8,14 @@ angular
 
       console.log("lesson controller is alive and kicking");
 
+      var studentID = $routeParams.studentID;
+      console.log(studentID);
+
       main.lesson = {
         lessonDate: "",
         lessonNotes: "",
         lessonEtc: "",
-        studentID: $scope.studentID
+        studentID: $routeParams.studentID
       }
 
       main.addLesson = function () {
@@ -22,7 +25,7 @@ angular
             console.log('success');
             main.lesson = {};
             main.loadLessons();
-            $scope.$apply();
+            // $scope.$apply();
           })
       }
 

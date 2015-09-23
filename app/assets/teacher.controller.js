@@ -2,11 +2,13 @@ angular
   .module('lessonPortal')
 
   .controller('teacherController',
-    function ($scope, $http, $location, $routeParams) {
+    function ($scope, $http, $location, $routeParams, $rootScope) {
 
       console.log("teacher controller is responding");
 
       var main = this;
+
+      $scope.studentID = $routeParams.studentID;
 
       main.student = {
         name: "",
@@ -22,7 +24,7 @@ angular
             console.log('success');
             main.student = {};
             main.loadStudents();
-            $scope.$apply();
+            // $scope.$apply();
           })
       }
 
@@ -34,17 +36,17 @@ angular
           })
       }
 
-      main.removeStudent = function () {
-        $http
-          .post('api/students/delete', main.student)
-          .success(function () {
-            if (error) {
-              console.log("Error;", error);
-            } else {
-              console.log("Student removed");
-            }
-          });
-      }
+      // main.removeStudent = function () {
+      //   $http
+      //     .post('api/students/delete', main.student)
+      //     .success(function () {
+      //       if (error) {
+      //         console.log("Error;", error);
+      //       } else {
+      //         console.log("Student removed");
+      //       }
+      //     });
+      // }
 
 
       // main.getUser = function () {
@@ -58,8 +60,6 @@ angular
 
 
       main.loadStudents();
-
-      $scope.studentID = $routeParams.studentID;
 
   });
 

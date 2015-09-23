@@ -16,6 +16,7 @@ Object.defineProperty(Lesson, "collection", {
 Lesson.create = function (lesson, l, cb) {
   var lesson = new Lesson(l);
   lesson.teacherID = user._id;
+  // lesson.studentID = ??????
   mongo.getDb().collection('lessons').insertOne(lesson, function (err, data) {
     console.log(data);
     cb(err, data);

@@ -5,7 +5,7 @@
   .container
     .add-lesson-section.col-md-12
       h3 Add Lesson
-      form(class="form" ng-submit="lessonCtrl.lesson.addLesson()")
+      form(class="form" ng-submit="lessonCtrl.addLesson()")
         .form-group
           input.form-control.date(type="text" name="name" placeholder="Lesson Date" ng-model="lessonCtrl.lesson.lessonDate" required)
         .form-group
