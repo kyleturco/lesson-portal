@@ -20,7 +20,6 @@ angular
             // $rootScope.userData = data;
             $rootScope.auth = data;
             $location.path('/');
-            toastr.success('Login Successful!');
           })
           .error(function (data) {
             console.log(data);

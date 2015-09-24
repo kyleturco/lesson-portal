@@ -3,7 +3,7 @@
   background-color: #ffffff;
   font-size: 1em;
   bottom: 0;
-  position: absolute;
+  // position: absolute;
   display: block;
   width: 100%;
 }
@@ -79,6 +79,11 @@ h1, h2, h3, h4, h5 {
   font-family: 'Roboto';
 }
 
+.header-light {
+  color: #ffffff;
+  line-height: 50px
+}
+
 p {
   font-family: 'Source Sans Pro';
   font-size: 1.7rem;
@@ -99,6 +104,12 @@ p {
   font-family: 'Roboto';
   text-transform: uppercase;
   padding: 10px 19px 10px 19px;
+}
+
+.hero {
+  font-size: 1.7rem;
+  padding: 13px 22px 13px 22px;
+  margin-top: 12px;
 }
 
 .main-btn:hover {
@@ -223,16 +234,50 @@ p {
 }
 
 .register-exp {
+  padding-top: 45px;
+  margin-bottom: 25px;
   p {
-    width: 72%;
+    width: 80%;
   }
+}
+
+.hero-text {
+  text-align: center;
+  padding: 0px 55px 0 55px;
+}
+
+.bullet {
+  padding-top: 18px;
+}
+
+.register-background {
+  i {
+    padding-right: 10px;
+    color: #1fa4fb;
+    font-size: 2.3rem;
+    border: 2px solid #B1E0FF;
+    background-color: #FFFFFF;
+    border-radius: 50px;
+    text-align: center;
+    padding: 15px 16px 15px 16px;
+    margin-right: 13px;
+  }
+}
+
+.register-hero {
+  background: url("http://i59.tinypic.com/2q9dpic.jpg") no-repeat;
+  background-size: cover;
+  margin-top: -22px;
+  padding: 140px 50px;
+  background-position: 0px;
 }
 
 .register-box {
   margin-top: 28px;
-  border: 1px solid #dedede;
-  padding: 35px;
-  background-color: #f0f0f0;
+  // border: 1px solid #dedede;
+  // border-left: 1px solid #dedede;
+  padding: 35px 35px 35px 70px;
+  // background-color: #f0f0f0;
   h2 {
     margin-top: 0px;
   }
