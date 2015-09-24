@@ -1,13 +1,13 @@
 angular
   .module('lessonPortal')
-  .run(function ($rootScope, $location) {
-    $rootScope.$on('$routeChangeStart', function (event, nextRoute) {
-      $rootscope.auth = data;
-        if (nextRoute.$$route && nextRoute.$$route.private && !$rootScope.auth) {
-          $location.path('/login')
-      }
-    });
-  })
+  // .run(function ($rootScope, $location) {
+  //   $rootScope.$on('$routeChangeStart', function (event, nextRoute) {
+  //     $rootscope.auth = data;
+  //       if (nextRoute.$$route && nextRoute.$$route.private && !$rootScope.auth) {
+  //         $location.path('/login')
+  //     }
+  //   });
+  // })
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {

@@ -15,10 +15,11 @@
     "tests"
   ],
   "dependencies": {
-    "bootstrap": "~3.3.5",
     "angular": "~1.4.4",
-    "fontawesome": "~4.4.0",
+    "angular-bootstrap": "~0.13.0",
     "angular-route": "~1.4.4",
-    "angular-bootstrap": "~0.13.0"
+    "bootstrap": "~3.3.5",
+    "fontawesome": "~4.4.0",
+    "toastr": "~2.1.2"
   }
 }

@@ -19,8 +19,8 @@ angular
           .success(function (data) {
             // $rootScope.userData = data;
             $rootScope.auth = data;
-            console.log($rootScope.auth);
-            $location.path('/')
+            $location.path('/');
+            toastr.success('Login Successful!');
           })
           .error(function (data) {
             console.log(data);

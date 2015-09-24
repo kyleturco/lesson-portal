@@ -18,8 +18,7 @@
         h4.list-header LESSONS
         .student-individual(ng-repeat="lessonItem in lessonCtrl.lessons | orderBy:'name'")
           button.btn.btn-danger.delete-student(type="submit" ng-submit="lessonItem.removeLesson()") <i class="fa fa-trash-o"></i>
-          h4.lesson-header
-            a(href="/#/{{studentID}}/{{lessonItem._id") {{lessonItem.lessonDate | date:'M/d/yyyy'}}
+          h4.lesson-header {{lessonItem.lessonDate | date:'M/d/yyyy'}}
             h5(a href="#" ng-model="collapsed" ng-click="collapsed=!collapsed") <i class="fa fa-plus-square-o"></i> See Description
             p(class="lesson-dsc" ng-show="collapsed") {{lessonItem.lessonNotes}}
           hr
