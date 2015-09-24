@@ -16,6 +16,8 @@ var PROJECT_ROOT = path.resolve(__dirname, '..');
 var SERVER_ROOT = PROJECT_ROOT + '/build';
 var userRoutes = require('./routes/users')
 var app = express();
+
+console.log(__dirname, PROJECT_ROOT, SERVER_ROOT);
 app.use(express.static(SERVER_ROOT));
 
 //session middleware
