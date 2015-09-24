@@ -6,7 +6,7 @@
     .header-nav-right
       .header-links
         ul(class="list-inline")
-          li: a(href="/#/lessons" ng-show="auth") Lessons
-          li: a(href="/#/account" ng-show="auth") Account
-          li: a(href="/#/logout" ng-show="auth") Logout
-          li: a(href="/#/login" ng-hide="auth") Login
+          li: a(href="/#/" class="headerItem" ng-show="auth") Students
+          //- li: a(href="/#/account" class="headerItem" ng-show="auth") Account
+          li: a(href="/#/logout" class="headerItem" ng-show="auth") Logout
+          li: a(href="/#/login" class="headerItem" ng-hide="auth") Login

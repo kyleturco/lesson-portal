@@ -1,12 +1,16 @@
 .footer {
   padding: 25px;
-  background-color: #e0e0e0;
+  background-color: #ffffff;
   font-size: 1em;
   bottom: 0;
   position: absolute;
   display: block;
   width: 100%;
-  display: none;
+}
+
+.footer-content {
+  border-top: 1px solid #dedede;
+  padding-top: 15px;
 }
 
 .login-box {
@@ -55,6 +59,10 @@
 .header-nav-left {
   display: block;
   float: left;
+}
+
+.headerItem {
+  margin-left: 25px;
 }
 
 // Font Styles
@@ -116,6 +124,18 @@ p {
   margin-right: 15px;
 }
 
+.close-div {
+  color: #1FA4FB;
+  background-color: #fff;
+  border: 1px solid #1fa4fb;
+  border-radius: 15px;
+  padding: 3px 8px 4px 8px;
+  display: block;
+  float: right;
+  margin-top: -43px;
+  margin-right: 15px;
+}
+
 // Teacher Homepage
 .add-student-section {
   border: 1px solid #dedede;
@@ -137,9 +157,10 @@ p {
   background-color: #f0f0f0;
   border-bottom: 1px solid #dedede;
   margin-top: -20px;
+  color: #1FA4FB;
   .hero-section {
-    margin-top: -2px;
-    margin-bottom: 17px;
+    margin-top: 8px;
+    margin-bottom: 12px;
   }
 }
 

@@ -1,12 +1,20 @@
 angular
   .module('lessonPortal')
+  .run(function ($rootScope, $location) {
+    $rootScope.$on('$routeChangeStart', function (event, nextRoute) {
+      $rootscope.auth = data;
+        if (nextRoute.$$route && nextRoute.$$route.private && !$rootScope.auth) {
+          $location.path('/login')
+      }
+    });
+  })
   .config(function ($routeProvider) {
-
     $routeProvider
       .when('/', {
         templateUrl: 'views/teacher-home.html',
         controller: 'teacherController',
-        controllerAs: 'teacher'
+        controllerAs: 'teacher',
+        'private': true
       })
       .when('/login', {
         templateUrl: 'views/login.html',
@@ -26,7 +34,8 @@ angular
       .when('/:studentID', {
         templateUrl: 'views/lesson-list.html',
         controller: 'lessonController',
-        controllerAs: 'lessonCtrl'
+        controllerAs: 'lessonCtrl',
+        'private': true
       })
       .otherwise({
         templateUrl: 'assets/static/404.html'

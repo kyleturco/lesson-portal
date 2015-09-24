@@ -19,6 +19,7 @@ angular
           .success(function (data) {
             // $rootScope.userData = data;
             $rootScope.auth = data;
+            console.log($rootScope.auth);
             $location.path('/')
           })
           .error(function (data) {
