@@ -4,8 +4,9 @@
   "description": "An online portal for private music teachers",
   "main": "server.js",
   "scripts": {
-    "build": "gulp",
     "postinstall": "npm run build",
+    "bower": "bower install",
+    "build": "./node_modules/.bin/bower install && gulp",
     "start": "node server/server.js"
   },
   "repository": {
@@ -61,6 +62,7 @@
     "node-sass-middleware": "^0.9.0"
   },
   "devDependencies": {
+    "bower": "^1.5.3",
     "browser-sync": "^2.9.3",
     "gulp": "^3.9.0",
     "gulp-livereload": "^3.8.0"
