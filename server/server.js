@@ -70,15 +70,8 @@ app.use('/users', userRoutes)
 app.use('/api', api);
 // app.use('/', routes);
 
-// Start Server
-// var server = app.listen(3000, function () {
-//   var port = server.address().port;
-//   console.log('Listening on port ' + port);
-// });
-
-// catch 404 and forward to error handler
 app.use(function(req, res, next) {
-    var err = new Error('Not Found');
+    var err = new Error('Not Found - hello heroku');
     err.status = 404;
     next(err);
 });
