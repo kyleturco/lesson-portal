@@ -5,8 +5,7 @@
   "main": "server.js",
   "scripts": {
     "postinstall": "npm run build",
-    "bower": "bower install",
-    "build": "./node_modules/.bin/bower install && gulp",
+    "build": "gulp",
     "start": "node server/server.js"
   },
   "repository": {
