@@ -5,6 +5,7 @@
   "main": "server.js",
   "scripts": {
     "build": "gulp",
+    "postinstall": "npm run build",
     "start": "node server/server.js"
   },
   "repository": {
