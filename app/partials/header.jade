@@ -2,11 +2,11 @@
   .container
     .header-nav-left
       .header-logo
-        h3.logo-header: a(href="/#/") Lesson Portal
+        h3.logo-header: a(href="/#/") <i class="fa fa-ellipsis-v"></i> TeacherTracker
     .header-nav-right
       .header-links
         ul(class="list-inline")
-          li: a(href="/#/lessons") Lessons
-          li: a(href="/#/account") Account
-          li: a(href="/#/logout") Logout
-          //- li: a(href="/#/login") Login
+          li: a(href="/#/lessons" ng-show="auth") Lessons
+          li: a(href="/#/account" ng-show="auth") Account
+          li: a(href="/#/logout" ng-show="auth") Logout
+          li: a(href="/#/login" ng-hide="auth") Login

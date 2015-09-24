@@ -18,6 +18,7 @@ angular
           .post('/users/login', main.info)
           .success(function (data) {
             // $rootScope.userData = data;
+            $rootScope.auth = data;
             $location.path('/')
           })
           .error(function (data) {
