@@ -4,7 +4,7 @@
   "description": "An online portal for private music teachers",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server/server.js | gulp"
   },
   "repository": {
     "type": "git",
