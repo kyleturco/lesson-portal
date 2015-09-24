@@ -90,7 +90,6 @@ function startNodeListener () {
     var mode = app.get('env');
 
     console.log('Server listening on port ' + port + ' in ' + mode + ' mode...');
-    console.log('Static folder: ', __dirname, PROJECT_ROOT, SERVER_ROOT);
   });
 }
 
