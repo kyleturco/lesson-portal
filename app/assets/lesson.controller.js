@@ -35,5 +35,19 @@ angular
       }
 
       main.loadLessons();
-  });
+
+      main.studentName = function ($routeParams, $scope) {
+        $http
+          .get('/api/students/')
+          .success(function (data) {
+            main.students = data;
+            for(var i = 0; i < data.length; i++){
+              if(data[i]._id == studentID.studentID){
+                main.foundStudent = data[i];
+              }
+          }
+        })
+      }
+      main.studentName();
+});
 

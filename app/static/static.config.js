@@ -13,8 +13,7 @@ angular
       .when('/', {
         templateUrl: 'views/teacher-home.html',
         controller: 'teacherController',
-        controllerAs: 'teacher',
-        'private': true
+        controllerAs: 'teacher'
       })
       .when('/login', {
         templateUrl: 'views/login.html',
@@ -34,8 +33,7 @@ angular
       .when('/:studentID', {
         templateUrl: 'views/lesson-list.html',
         controller: 'lessonController',
-        controllerAs: 'lessonCtrl',
-        'private': true
+        controllerAs: 'lessonCtrl'
       })
       .otherwise({
         templateUrl: 'assets/static/404.html'

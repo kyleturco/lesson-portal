@@ -36,6 +36,8 @@ angular
           })
       }
 
+      main.loadStudents();
+  });
 
       // main.removeStudent = function () {
       //   $http
@@ -48,19 +50,4 @@ angular
       //       }
       //     });
       // }
-
-
-      // main.getUser = function () {
-      //   $http
-      //     .get('/login', main.user)
-      //     .success(function (data) {
-      //       user = user.username;
-      //       console.log(user);
-      //     })
-      // }
-
-
-      main.loadStudents();
-
-  });
 

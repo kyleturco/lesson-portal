@@ -299,6 +299,12 @@ p {
 
 // Lesson Page Styles
 
+.student-name {
+  h3 {
+    margin: 0px 0px;
+  }
+}
+
 .left-side {
   padding-left: 0px;
 }
@@ -307,6 +313,7 @@ p {
   background-color: #f0f0f0;
   margin-top: -22px;
   border-bottom: 1px solid #dedede;
+  padding: 25px;
 }
 
 // .add-lesson-bkg {
@@ -314,9 +321,14 @@ p {
 //   border-bottom: 1px solid #dedede;
 // }
 
+.add-lesson-bkg {
+  padding-top: 10px;
+}
+
 .add-lesson-section {
   // border-top: 1px solid #dedede;
   // border-bottom: 1px solid #dedede;
+  margin-top: 6px;
   padding-bottom: 20px;
   padding-left: 0px;
   .date {
