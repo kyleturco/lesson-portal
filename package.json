@@ -4,8 +4,6 @@
   "description": "An online portal for private music teachers",
   "main": "server.js",
   "scripts": {
-    "postinstall": "npm run build",
-    "build": "gulp",
     "start": "node server/server.js"
   },
   "repository": {
