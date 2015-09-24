@@ -17,7 +17,6 @@ var SERVER_ROOT = PROJECT_ROOT + '/build';
 var userRoutes = require('./routes/users')
 var app = express();
 
-console.log(__dirname, PROJECT_ROOT, SERVER_ROOT);
 app.use(express.static(SERVER_ROOT));
 
 //session middleware
@@ -91,6 +90,7 @@ function startNodeListener () {
     var mode = app.get('env');
 
     console.log('Server listening on port ' + port + ' in ' + mode + ' mode...');
+    console.log('Static folder: ', __dirname, PROJECT_ROOT, SERVER_ROOT);
   });
 }
 
