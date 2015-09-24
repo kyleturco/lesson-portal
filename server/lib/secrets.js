@@ -5,7 +5,6 @@ var path = require('path');
 module.exports = {
 
   sessionSecret: 'itslessontime',
-  mongo : {
-    url : 'mongodb://localhost:27017/lessonportal'
-  }
+  MONGODB_URL: 'mongodb://teachertracker:password@ds043447.mongolab.com:43447/lesson-portal'
+
 };
