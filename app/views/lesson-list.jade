@@ -3,6 +3,8 @@
     .student-name
       h3 Student: {{lessonCtrl.foundStudent.name}}
       p {{lessonCtrl.foundStudent.lessonDay}} | {{lessonCtrl.foundStudent.lessonTime | date:'hh:mm a'}}
+      a(href="/#/")
+        p.breadcrumbs <i class="fa fa-arrow-left"></i> Back
 .add-lesson-bkg
   .container
     h3 <i class="fa fa-pencil-square-o"></i> Add Lesson

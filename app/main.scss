@@ -91,6 +91,12 @@ p {
   color: #808080;
 }
 
+.breadcrumbs {
+  color: #1FA4FB;
+  font-size: 1.5rem;
+  margin: 0px;
+}
+
 // Global
 .form-control {
   border-radius: 0px;
@@ -179,6 +185,7 @@ p {
   border-bottom: 1px solid #dedede;
   margin-top: -20px;
   color: #1FA4FB;
+  padding: 5px;
   .hero-section {
     margin-top: 8px;
     margin-bottom: 12px;
@@ -243,7 +250,7 @@ p {
 }
 
 .hero-text {
-  width: 49%;
+  // width: 49%;
   text-align: left;
   padding: 0px 5px 0 75px;
 }
@@ -304,7 +311,7 @@ p {
     margin: 0px 0px;
   }
   p {
-    margin: 0px 0px;
+    margin: 0px 0px 4px 0px;
   }
 }
 
