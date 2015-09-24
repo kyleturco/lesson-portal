@@ -58,31 +58,19 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-// app.use(function (req, res, next) {
-//   if (req.session.user) {
-//     next();
-//   } else {
-//     res.status(403).send({redirect: true})
-//   }
-// })
 
 app.use('/users', userRoutes)
+
+app.use(function (req, res, next) {
+  if (req.session.user) {
+    next();
+  } else {
+    res.status(403).send({redirect: true})
+  }
+})
+
 app.use('/api', api);
 // app.use('/', routes);
-
-// app.use(function(req, res, next) {
-//     var err = new Error('Not Found - hello heroku');
-//     err.status = 404;
-//     next(err);
-// });
-
-app.use(function(err, req, res) {
-  res.status(err.status || 500);
-  res.end(JSON.stringify({
-    message: err.message,
-    error: {}
-  }));
-});
 
 database.connect(onDbConnect);
 
