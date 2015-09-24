@@ -4,7 +4,8 @@
   "description": "An online portal for private music teachers",
   "main": "server.js",
   "scripts": {
-    "start": "node server/server.js | gulp"
+    "start": "node server/server.js",
+    "gulp": "gulp"
   },
   "repository": {
     "type": "git",
