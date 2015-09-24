@@ -19,4 +19,21 @@ angular
             $location.path('/');
           })
       }
+
+      $(document).ready(initialize); // this allows the html to fully render before trying to run any js functions
+
+      // initialize is the function that gets run through after html fully renders (called above)
+      function initialize() {
+        $('btn.btn-primary.main-btn').on('click', clickRegister);
+      }
+
+      // jQuery interaction function called by the click event in initialize
+      function clickRegister(e) {
+        e.preventDefault();
+        $('html, body').animate({
+            scrollTop: $('#register-box').offset().top
+        }, 1000);
+        return false;
+}
+
   });

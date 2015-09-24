@@ -20,7 +20,7 @@ angular
       main.addStudent = function () {
         $http
           .post('/api/students', main.student)
-          .success(function () {
+          .success(function (data) {
             console.log('success');
             main.student = {};
             main.loadStudents();
@@ -35,6 +35,7 @@ angular
             main.students = data;
           })
       }
+
 
       // main.removeStudent = function () {
       //   $http

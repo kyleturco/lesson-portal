@@ -1,10 +1,9 @@
 .register-hero
   .container
-    .col-md-2
-    .col-md-8.hero-text
+    .hero-text
       h1.header-light All your lessons and all your students. All in one place.
-      btn.btn.btn-primary.main-btn.hero(href="/#/register") Get Started Now
-    .col-md-2
+      p.subheader-light Welcome to TeacherTracker, an online platform for private lesson teachers
+      btn.btn.btn-primary.main-btn.hero(href="#register-box") Get Started Now
 .register-background
   .container
     .register-exp.col-md-7
@@ -14,32 +13,24 @@
         h4.bullet <i class="fa fa-calendar-o"></i> Schedule With Ease
         h4.bullet <i class="fa fa-file-text-o"></i> Maintain Lesson Plans
         h4.bullet <i class="fa fa-check-square-o"></i> Track Student Progress
-    .register-box.col-md-5
-      h2 Register
-      p Join TeacherTracker today!
-      form(class="form" ng-submit="register.register()")
-        .form-group
-            input.form-control(type="text" name="username" placeholder="Enter Username" ng-model="register.info.username" required)
-        .form-group
-          input.form-control(type="password" name="password" placeholder="Password" ng-model="register.info.password" required)
-        button.btn.btn-default.main-btn(type="submit") Submit
-        a(href='/')
-          button.btn.btn-primary.sec-btn(type="button") Cancel
-        p.register-cta Already have an account?
-          a.register-link(href="/#/login") Sign In Now
+    div(id="register-box")
+      .register-box.col-md-5
+        h2 Register
+        p Join TeacherTracker today!
+        form(class="form" ng-submit="register.register()")
+          .form-group
+              input.form-control(type="text" name="username" placeholder="Enter Username" ng-model="register.info.username" required)
+          .form-group
+            input.form-control(type="password" name="password" placeholder="Password" ng-model="register.info.password" required)
+          button.btn.btn-default.main-btn(type="submit") Submit
+          a(href='/')
+            button.btn.btn-primary.sec-btn(type="button") Cancel
+          p.register-cta Already have an account?
+            a.register-link(href="/#/login") Sign In Now
 
-//- .icon-1
-//-   .register-icon
-//-     i(class="fa fa-calendar")
-//-   .register-text
-//-     h4 Schedule with ease
-//- .icon-2
-//-   .register-icon
-//-     i(class="fa fa-pencil-square-o")
-//-   .register-text
-//-     h4 Maintain lesson plans
-//- .icon-3
-//-   .register-icon
-//-     i(class="fa fa-bar-chart")
-//-   .register-text
-//-     h4 Manage student payments
+
+    //- .col-md-2
+    //- .col-md-8.hero-text
+    //-   h1.header-light All your lessons and all your students. All in one place.
+    //-   btn.btn.btn-primary.main-btn.hero(href="/#/register") Get Started Now
+    //- .col-md-2
