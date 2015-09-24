@@ -2,6 +2,7 @@
   .container
     .student-name
       h3 Student: {{lessonCtrl.foundStudent.name}}
+      p {{lessonCtrl.foundStudent.lessonDay}} | {{lessonCtrl.foundStudent.lessonTime | date:'hh:mm a'}}
 .add-lesson-bkg
   .container
     h3 <i class="fa fa-pencil-square-o"></i> Add Lesson
