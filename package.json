@@ -10,6 +10,10 @@
     "type": "git",
     "url": "git+https://github.com/kyleturco/lesson-portal.git"
   },
+  "engines": {
+    "node": "0.12.7",
+    "npm": "2.14.3"
+  },
   "author": "Kyle Turco <kyleturco@gmail.com>",
   "license": "MIT",
   "bugs": {
