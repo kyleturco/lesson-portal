@@ -73,6 +73,10 @@ gulp.task('serve', ['build:dev'], function () {
  // gulp.watch(['app/**/*', '!app/**/*.jade', '!app/**/*.scss', '!app/**/*.js'], ['build:dev']).on('change', $.browserSync.reload);
 });
 
+gulp.task('heroku:production', ['build:dev'], function(cb) {
+  cb();
+});
+
 gulp.task('default', ['clean'], function () {
   gulp.start('serve');
 });
